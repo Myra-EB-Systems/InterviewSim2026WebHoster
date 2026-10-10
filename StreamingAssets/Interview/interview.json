@@ -1,0 +1,822 @@
+{
+  "version": 1,
+  "company": "Myra EB",
+  "panel": [
+    { "id": "simone", "name": "Simone Carter", "role": "HR Business Partner", "voiceName": "Bella", "voiceId": "hpp4J3VqNfWAUOO0d1Us", "character": "Business_Female_01", "seat": 0 },
+    { "id": "jordan", "name": "Jordan Reyes", "role": "Manufacturing Supervisor", "voiceName": "Chris", "voiceId": "iP95p4xoKVk53GoZ742B", "character": "Business_Male_05", "seat": 1 },
+    { "id": "linda", "name": "Linda Hale", "role": "Quality Assurance Manager", "voiceName": "Matilda", "voiceId": "XrExE9yKIg1WjnnlVkGX", "character": "Business_Female_02", "seat": 2 },
+    { "id": "frank", "name": "Frank Kowalski", "role": "Senior Bioprocess Lead", "voiceName": "Bill", "voiceId": "pqHfZKP75CvOlQylNhV4", "character": "Business_Male_04", "seat": 3 }
+  ],
+  "scoring": {
+    "semanticWeight": 0.45,
+    "conceptWeight": 0.55,
+    "semanticFloor": 0.30,
+    "semanticCeiling": 0.75,
+    "strongAt": 0.68,
+    "solidAt": 0.48,
+    "developingAt": 0.28,
+    "strongNeedsCoverage": 0.5,
+    "solidNeedsCoverage": 0.25,
+    "probeIfScoreAtMost": 2,
+    "probeIfShorterThanSeconds": 20,
+    "maxScoreAfterProbe": 3,
+    "readyAverage": 3.0,
+    "minWordsToEvaluate": 3
+  },
+  "modules": [
+    { "id": 1, "title": "Opening and introduction", "randomizable": false, "critical": false, "technical": false },
+    { "id": 2, "title": "GMP, documentation and data integrity", "randomizable": true, "critical": true, "technical": true },
+    { "id": 3, "title": "Aseptic technique, gowning and contamination control", "randomizable": true, "critical": true, "technical": true },
+    { "id": 4, "title": "Upstream and downstream processing", "randomizable": true, "critical": false, "technical": true },
+    { "id": 5, "title": "Equipment, cleaning and sterilization", "randomizable": true, "critical": false, "technical": true },
+    { "id": 6, "title": "Safety, quality mindset and drug modalities", "randomizable": true, "critical": false, "technical": true },
+    { "id": 7, "title": "Behavioral and situational", "randomizable": false, "critical": true, "technical": false },
+    { "id": 8, "title": "Closing", "randomizable": false, "critical": false, "technical": false }
+  ],
+  "lines": [
+    { "id": "OPEN_1", "kind": "opening", "speaker": "jordan", "text": "Hi, thanks for coming in today. I'm Jordan Reyes, a Manufacturing Supervisor here at Myra EB. We make a monoclonal antibody for autoimmune disease, and we're growing our team. I've got three colleagues with me today.", "spoken": "Hi, thanks for coming in today. I'm Jordan Reyes, a Manufacturing Supervisor here at My-ra E.B. We make a monoclonal antibody for autoimmune disease, and we're growing our team. I've got three colleagues with me today." },
+    { "id": "INTRO_LINDA", "kind": "intro", "speaker": "linda", "text": "Hi, I'm Linda Hale. I manage Quality Assurance." },
+    { "id": "INTRO_FRANK", "kind": "intro", "speaker": "frank", "text": "Frank Kowalski. I lead our process team, upstream and downstream." },
+    { "id": "INTRO_SIMONE", "kind": "intro", "speaker": "simone", "text": "And I'm Simone Carter from Human Resources. It's nice to meet you." },
+    { "id": "OPEN_2", "kind": "opening", "speaker": "jordan", "text": "We'll ask about your background, some technical topics, and how you handle situations on the floor. There are no trick questions. Ready to get started?" },
+
+    { "id": "TRANS_M2", "kind": "transition", "module": 2, "speaker": "linda", "text": "Let's talk about working in a regulated environment." },
+    { "id": "TRANS_M3", "kind": "transition", "module": 3, "speaker": "linda", "text": "Now let's go into the cleanroom." },
+    { "id": "TRANS_M4", "kind": "transition", "module": 4, "speaker": "frank", "text": "Let's talk about how a biologic is actually made." },
+    { "id": "TRANS_M5", "kind": "transition", "module": 5, "speaker": "frank", "text": "A big part of this job is equipment prep and cleaning." },
+    { "id": "TRANS_M6", "kind": "transition", "module": 6, "speaker": "jordan", "text": "Let's switch to safety and quality for a few minutes." },
+    { "id": "TRANS_M7", "kind": "transition", "module": 7, "speaker": "simone", "text": "Now I'd like to hear about how you work. For these, give me a specific example if you can." },
+
+    { "id": "FILL_JORDAN_1", "kind": "filler", "speaker": "jordan", "text": "Okay, thank you." },
+    { "id": "FILL_JORDAN_2", "kind": "filler", "speaker": "jordan", "text": "Got it." },
+    { "id": "FILL_JORDAN_3", "kind": "filler", "speaker": "jordan", "text": "That's helpful." },
+    { "id": "FILL_LINDA_1", "kind": "filler", "speaker": "linda", "text": "Okay, thank you." },
+    { "id": "FILL_LINDA_2", "kind": "filler", "speaker": "linda", "text": "Got it." },
+    { "id": "FILL_LINDA_3", "kind": "filler", "speaker": "linda", "text": "Let's move on." },
+    { "id": "FILL_FRANK_1", "kind": "filler", "speaker": "frank", "text": "Okay, thank you." },
+    { "id": "FILL_FRANK_2", "kind": "filler", "speaker": "frank", "text": "Got it." },
+    { "id": "FILL_FRANK_3", "kind": "filler", "speaker": "frank", "text": "That's helpful." },
+    { "id": "FILL_SIMONE_1", "kind": "filler", "speaker": "simone", "text": "Okay, thank you." },
+    { "id": "FILL_SIMONE_2", "kind": "filler", "speaker": "simone", "text": "That's helpful." },
+    { "id": "FILL_SIMONE_3", "kind": "filler", "speaker": "simone", "text": "Let's move on." },
+
+    { "id": "GOOD_JORDAN_1", "kind": "react_good", "speaker": "jordan", "text": "Nice, that's exactly what I was looking for." },
+    { "id": "GOOD_JORDAN_2", "kind": "react_good", "speaker": "jordan", "text": "That's a great answer, thank you." },
+    { "id": "GOOD_LINDA_1", "kind": "react_good", "speaker": "linda", "text": "Good. That's the answer I'd want from someone on my floor." },
+    { "id": "GOOD_LINDA_2", "kind": "react_good", "speaker": "linda", "text": "Excellent, that's very thorough." },
+    { "id": "GOOD_FRANK_1", "kind": "react_good", "speaker": "frank", "text": "Yeah, that's spot on." },
+    { "id": "GOOD_FRANK_2", "kind": "react_good", "speaker": "frank", "text": "Good answer. You know your stuff." },
+    { "id": "GOOD_SIMONE_1", "kind": "react_good", "speaker": "simone", "text": "That's a really nice answer, thank you." },
+    { "id": "GOOD_SIMONE_2", "kind": "react_good", "speaker": "simone", "text": "Great example. Thanks for sharing that." },
+
+    { "id": "OK_JORDAN_1", "kind": "react_ok", "speaker": "jordan", "text": "Okay, yeah, that's good enough." },
+    { "id": "OK_JORDAN_2", "kind": "react_ok", "speaker": "jordan", "text": "Alright, that works. Thanks." },
+    { "id": "OK_LINDA_1", "kind": "react_ok", "speaker": "linda", "text": "Okay, that's close enough." },
+    { "id": "OK_LINDA_2", "kind": "react_ok", "speaker": "linda", "text": "Mm-hm. Fair enough." },
+    { "id": "OK_FRANK_1", "kind": "react_ok", "speaker": "frank", "text": "Yeah, that's good enough." },
+    { "id": "OK_FRANK_2", "kind": "react_ok", "speaker": "frank", "text": "Okay, I'll take that." },
+    { "id": "OK_SIMONE_1", "kind": "react_ok", "speaker": "simone", "text": "Okay, that makes sense. Thank you." },
+    { "id": "OK_SIMONE_2", "kind": "react_ok", "speaker": "simone", "text": "Alright, that's good." },
+
+    { "id": "CLARIFY_JORDAN_1", "kind": "clarify", "speaker": "jordan", "text": "Hmm, I'm not sure I followed. Could you be more specific?" },
+    { "id": "CLARIFY_JORDAN_2", "kind": "clarify", "speaker": "jordan", "text": "I didn't quite get what you meant there. Can you put it another way?" },
+    { "id": "CLARIFY_LINDA_1", "kind": "clarify", "speaker": "linda", "text": "I'm not sure I understood. Can you be more specific?" },
+    { "id": "CLARIFY_LINDA_2", "kind": "clarify", "speaker": "linda", "text": "Sorry, I didn't quite follow that. What exactly would you do?" },
+    { "id": "CLARIFY_FRANK_1", "kind": "clarify", "speaker": "frank", "text": "Hmm, I'm not really following. Can you get more specific?" },
+    { "id": "CLARIFY_FRANK_2", "kind": "clarify", "speaker": "frank", "text": "I didn't quite catch what you meant. Walk me through it again?" },
+    { "id": "CLARIFY_SIMONE_1", "kind": "clarify", "speaker": "simone", "text": "I'm not sure I followed. Could you be more specific?" },
+    { "id": "CLARIFY_SIMONE_2", "kind": "clarify", "speaker": "simone", "text": "Can you tell me a bit more about what you meant?" },
+
+    { "id": "LEAD_JORDAN_1", "kind": "lead", "speaker": "jordan", "text": "Hmm, okay. Let me ask you this." },
+    { "id": "LEAD_JORDAN_2", "kind": "lead", "speaker": "jordan", "text": "Okay. Follow-up question for you." },
+    { "id": "LEAD_LINDA_1", "kind": "lead", "speaker": "linda", "text": "Okay. Let me dig into that a little." },
+    { "id": "LEAD_LINDA_2", "kind": "lead", "speaker": "linda", "text": "Mm, okay. One more on that." },
+    { "id": "LEAD_FRANK_1", "kind": "lead", "speaker": "frank", "text": "Okay, let's go a little deeper." },
+    { "id": "LEAD_FRANK_2", "kind": "lead", "speaker": "frank", "text": "Hmm, alright. Let me ask you this." },
+    { "id": "LEAD_SIMONE_1", "kind": "lead", "speaker": "simone", "text": "Okay. Let me follow up on that." },
+    { "id": "LEAD_SIMONE_2", "kind": "lead", "speaker": "simone", "text": "Thanks. Can I ask a little more?" },
+
+    { "id": "DETAIL_JORDAN", "kind": "detail", "speaker": "jordan", "text": "Can you give me a bit more detail on that?" },
+    { "id": "DETAIL_LINDA", "kind": "detail", "speaker": "linda", "text": "Could you be a little more specific?" },
+    { "id": "DETAIL_FRANK", "kind": "detail", "speaker": "frank", "text": "Can you walk me through that in a bit more detail?" },
+    { "id": "DETAIL_SIMONE", "kind": "detail", "speaker": "simone", "text": "Can you give me a specific example?" },
+
+    { "id": "IDK_JORDAN", "kind": "idk", "speaker": "jordan", "text": "That's okay. How would you find out?" },
+    { "id": "IDK_LINDA", "kind": "idk", "speaker": "linda", "text": "That's okay. How would you find out?" },
+    { "id": "IDK_FRANK", "kind": "idk", "speaker": "frank", "text": "That's okay. How would you find out?" },
+    { "id": "IDK_SIMONE", "kind": "idk", "speaker": "simone", "text": "That's okay. How would you find out?" },
+
+    { "id": "RETRY_JORDAN", "kind": "retry", "speaker": "jordan", "text": "Sorry, I didn't catch that. Could you say it again?" },
+    { "id": "RETRY_LINDA", "kind": "retry", "speaker": "linda", "text": "Sorry, I didn't catch that. Could you say it again?" },
+    { "id": "RETRY_FRANK", "kind": "retry", "speaker": "frank", "text": "Sorry, I didn't catch that. Could you say it again?" },
+    { "id": "RETRY_SIMONE", "kind": "retry", "speaker": "simone", "text": "Sorry, I didn't catch that. Could you say it again?" },
+
+    { "id": "CLOSE", "kind": "closing", "speaker": "jordan", "text": "Thank you for your time today. We'll be in touch about next steps within the next week or so. Have a great day." }
+  ],
+  "questions": [
+    {
+      "id": "Q1.1", "module": 1, "title": "Tell me about yourself", "type": "General", "speaker": "simone",
+      "say": "Let's start simple. Tell me a little about yourself and what brings you here.",
+      "probe": "What from your past jobs do you think will help you most in a GMP environment?",
+      "coach": "Use present, past, future: what you're doing now (training), what you did before (relevant skills), and why this role next. Avoid reading your whole resume.",
+      "listenFor": "A 60–90 second answer; past work tied to transferable skills (following procedures, attention to detail, teamwork, reliability); recent biomanufacturing training; a clear reason for applying.",
+      "probeIfShorterThanSeconds": 30,
+      "concepts": [
+        { "id": "current", "name": "Mentioned your current biomanufacturing training", "weight": 1, "core": true, "terms": ["training", "program", "course", "certificate", "aftreat", "class", "studying", "learning"] },
+        { "id": "past", "name": "Described past work experience", "weight": 1, "core": true, "terms": ["worked", "job", "experience", "previous", "before this", "used to", "role", "position", "employed"] },
+        { "id": "skills", "name": "Tied experience to transferable skills", "weight": 1.5, "core": false, "terms": ["procedure", "detail", "teamwork", "team", "reliable", "dependable", "follow instructions", "checklist", "organized", "safety", "quality", "accurate", "punctual"] },
+        { "id": "why", "name": "Gave a clear reason for applying", "weight": 1, "core": true, "terms": ["interested", "excited", "want to", "because", "passion", "patients", "career", "goal", "why i applied", "looking for", "grow"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Right now I'm finishing a biomanufacturing training program where I've practiced gowning, aseptic technique and running equipment in VR. Before that I worked three years in a warehouse where I followed strict safety procedures and checklists. I'm applying because I want a career where my attention to detail helps make medicine for patients.",
+        "I'm currently in a life sciences training program learning GMP and documentation. Previously I worked in food service, which taught me to follow procedures exactly, keep things clean, and work as a team under pressure. I'm here because biomanufacturing is a growing field and I want a stable career helping patients.",
+        "A little about me: I spent four years in retail as a shift lead, handling cash, inventory counts and training new staff, so I'm used to accuracy and being dependable. I decided to move into biotech and enrolled in a manufacturing training course. This role is the next step because it uses those skills in a place that matters.",
+        "I'm someone who likes structured, hands-on work. I was in the military, where following procedures and attention to detail were everything. Now I'm completing a biomanufacturing certificate, and I'm excited about this job because it combines discipline and teamwork with making products for patients.",
+        "Currently I'm training in bioprocessing and learning about cleanrooms, batch records and equipment. Before that I was a medical assistant, so I'm used to sterile technique and careful documentation. I applied because I want to grow into manufacturing and help produce treatments people depend on."
+      ]
+    },
+    {
+      "id": "Q1.2", "module": 1, "title": "Why biomanufacturing?", "type": "General", "speaker": "jordan",
+      "say": "Why do you want to work in biomanufacturing?",
+      "probe": "What do you think a typical day looks like for a manufacturing associate?",
+      "coach": "Strong answers mention gowning, executing batch records, cleaning, documentation, and teamwork, not just \"working in a lab.\"",
+      "listenFor": "Connection to patients and medicine; interest in hands-on, structured work; awareness that the industry is growing in Massachusetts; a personal reason if genuine.",
+      "concepts": [
+        { "id": "patients", "name": "Connected the work to patients and medicine", "weight": 1.5, "core": true, "terms": ["patient", "medicine", "medication", "treatment", "therapy", "drug", "health", "save lives", "help people", "people's lives"] },
+        { "id": "handson", "name": "Showed interest in hands-on, structured work", "weight": 1, "core": false, "terms": ["hands on", "structured", "procedure", "process", "equipment", "machines", "routine", "precise"] },
+        { "id": "growth", "name": "Knows the industry is growing", "weight": 0.75, "core": false, "terms": ["growing", "growth", "massachusetts", "boston", "demand", "jobs", "opportunity", "expanding", "stable"] },
+        { "id": "dayjob", "name": "Knows what the job involves (gowning, batch records, cleaning)", "weight": 1, "core": false, "terms": ["gown", "batch record", "cleaning", "documentation", "cleanroom", "sop", "teamwork"] },
+        { "id": "personal", "name": "Gave a personal reason", "weight": 0.5, "core": false, "terms": ["my family", "my mother", "my father", "my friend", "personally", "my own", "someone i know"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "I want to be part of making medicines that help patients. I like hands-on work with clear procedures, and biomanufacturing in Massachusetts is growing, so there's real opportunity to build a career here.",
+        "A family member relies on a biologic drug, so I've seen how much these treatments matter. I enjoy structured work, following procedures and working with equipment, and I know the industry is expanding around Boston.",
+        "I like that the work is precise and meaningful. You gown up, follow the batch record, clean and document everything, and at the end there's a product that treats patients. It's also a stable, growing field.",
+        "Biomanufacturing combines things I'm good at, following instructions, attention to detail and teamwork, with a purpose I care about, which is helping people get the therapies they need.",
+        "I'm interested because every batch ends up helping someone's health. The day-to-day of running processes, cleaning and documentation fits me, and there are a lot of jobs opening up in this area."
+      ]
+    },
+    {
+      "id": "Q1.3", "module": 1, "title": "What do you know about us?", "type": "General", "speaker": "jordan",
+      "say": "What do you know about our company, or companies like ours?",
+      "probe": "What's the difference between a small-molecule drug and a biologic?",
+      "coach": "Before every real interview, spend 15 minutes on the company website and recent news. Know what they make and what stage it's in.",
+      "listenFor": "Basic research on the employer; knows the product type (antibody, cell therapy, etc.); can name the modality and why it matters.",
+      "concepts": [
+        { "id": "product", "name": "Named what the company makes (monoclonal antibody / cell therapy)", "weight": 1.5, "core": true, "terms": ["antibody", "antibodies", "monoclonal", "mab", "cell therapy", "biologic", "autoimmune"] },
+        { "id": "research", "name": "Showed they researched the employer", "weight": 1, "core": false, "terms": ["website", "read", "research", "news", "looked up", "learned that", "pipeline", "clinical", "approved", "commercial"] },
+        { "id": "modality", "name": "Explained why the modality matters", "weight": 1, "core": false, "terms": ["living cells", "cells", "protein", "large molecule", "complex", "bioreactor", "targets", "immune system"] }
+      ],
+      "redFlags": [
+        { "id": "nothing", "name": "Knew nothing about the company", "terms": ["i dont know anything", "nothing really", "i didnt look", "havent looked"] }
+      ],
+      "exampleAnswers": [
+        "From your website I learned you make a monoclonal antibody for autoimmune disease and you also run a small cell therapy suite. Antibodies are biologics made in living cells, so manufacturing has to be very controlled.",
+        "You're a biologics company producing a monoclonal antibody. That means growing cells in bioreactors and purifying the protein, which is more complex than making a pill. I also saw you're expanding your team.",
+        "I read that Myra EB makes an antibody therapy for autoimmune conditions and has a cell therapy program. Companies like yours make large protein drugs that target the immune system, so quality and consistency are critical.",
+        "Companies like yours make biologics, large molecules such as antibodies that are produced by living cells instead of chemical synthesis. I understand your main product treats autoimmune disease.",
+        "I looked you up. You manufacture a monoclonal antibody and do some cell therapy work. Those are newer modalities that need cleanrooms, bioreactors and a lot of documentation."
+      ]
+    },
+    {
+      "id": "Q2.1", "module": 2, "title": "What is GMP?", "type": "Technical knowledge", "speaker": "linda",
+      "say": "In your own words, what does GMP mean, and why does it matter?",
+      "probe": "Who enforces GMP, and what happens if a company doesn't follow it?",
+      "coach": "Mention FDA inspections, warning letters, recalls, and, most important, patient safety.",
+      "listenFor": "Good Manufacturing Practice; FDA regulations (21 CFR Parts 210/211, and 600s for biologics); ensures product is safe, pure, effective and consistent; \"if it isn't documented, it didn't happen.\"",
+      "concepts": [
+        { "id": "name", "name": "Good Manufacturing Practice", "weight": 1, "core": true, "terms": ["good manufacturing practice", "good manufacturing practices", "manufacturing practice"] },
+        { "id": "fda", "name": "FDA regulations (21 CFR 210/211)", "weight": 1, "core": false, "terms": ["fda", "regulation", "regulatory", "cfr", "210", "211", "law", "federal", "government"] },
+        { "id": "quality", "name": "Ensures safe, pure, effective, consistent product", "weight": 1.5, "core": true, "terms": ["safe", "safety", "pure", "purity", "effective", "consistent", "quality", "same every time"] },
+        { "id": "documented", "name": "If it isn't documented, it didn't happen", "weight": 1, "core": false, "terms": ["documented", "documentation", "didnt happen", "record", "write down", "paperwork"] },
+        { "id": "patient", "name": "Patient safety", "weight": 0.75, "core": false, "terms": ["patient", "people taking", "public"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "GMP stands for Good Manufacturing Practice. It's the FDA regulations, like 21 CFR 210 and 211, that make sure every batch is safe, pure, effective and consistent. A big part of it is documentation: if it isn't documented, it didn't happen.",
+        "Good Manufacturing Practices are the rules for making medicine so the product is the same quality every time and safe for patients. The FDA enforces them, and everything you do has to be written down in records.",
+        "It means Good Manufacturing Practice. It matters because the people taking our product depend on it being safe and effective, so we follow approved procedures, keep the facility clean and document everything for the FDA.",
+        "GMP is the set of regulations for producing drugs consistently and with quality. It covers people, equipment, procedures and records. If you didn't write it down, as far as the FDA is concerned it didn't happen.",
+        "Good Manufacturing Practice is how the FDA makes sure products are made safely, with the right purity and strength, every single batch. It protects patients and it's the law for drug makers."
+      ]
+    },
+    {
+      "id": "Q2.2", "module": 2, "title": "Good documentation practice", "type": "Procedure", "speaker": "linda",
+      "say": "You made a mistake writing an entry in a batch record. How do you correct it?",
+      "probe": "What if you forgot to record a step until an hour later?",
+      "coach": "Late entries are recorded honestly with the actual date and time and noted as a late entry per SOP. Never backdate.",
+      "listenFor": "Single line through the error so it stays legible; write the correct value; initial and date; give a reason if required; never use white-out, overwrite, or tear out pages; use permanent ink.",
+      "concepts": [
+        { "id": "line", "name": "Single line through the error, still legible", "weight": 1.5, "core": true, "terms": ["single line", "one line", "line through", "cross it out", "strike through", "strikethrough", "strike it", "cross out", "still readable", "readable", "legible"] },
+        { "id": "correct", "name": "Write the correct value", "weight": 1, "core": true, "terms": ["correct value", "correct entry", "right value", "right number", "write the correct", "correct number", "new value", "next to it", "beside it"] },
+        { "id": "initial", "name": "Initial and date the correction", "weight": 1.5, "core": true, "terms": ["initial", "date", "sign", "signature"] },
+        { "id": "reason", "name": "Give a reason if required", "weight": 0.75, "core": false, "terms": ["reason", "explain", "explanation", "error code", "comment", "why"] },
+        { "id": "never", "name": "Never white-out, overwrite or tear out pages", "weight": 0.75, "core": false, "terms": ["white out", "whiteout", "overwrite", "tear out", "erase", "scribble", "write over"] },
+        { "id": "ink", "name": "Permanent ink", "weight": 0.5, "core": false, "terms": ["permanent ink", "pen", "ink", "black ink"] }
+      ],
+      "redFlags": [
+        { "id": "obscure", "name": "Would hide or erase the original entry", "terms": ["use white out", "use whiteout", "erase it", "scribble it out", "tear out the page", "write over it", "rip out", "start a new page and throw"] },
+        { "id": "nodoc", "name": "Would fix the record without documenting the change", "terms": ["just fix it", "without anyone knowing", "no one would know"] }
+      ],
+      "exampleAnswers": [
+        "I'd draw a single line through the mistake so it's still legible, write the correct value next to it, and initial and date it. If the SOP needs a reason I'd add one. I'd never use white-out or tear out a page, and I'd use permanent ink.",
+        "Cross out the error with one line, so whoever reviews it can still read the original. Then write the right entry, put my initials and the date, and add a short explanation if required.",
+        "You don't erase or write over it. You strike through it once, enter the correct number beside it, and sign and date the correction following good documentation practice.",
+        "Following GDP, I'd put a single line through the wrong value, write the correct one, initial and date it, and give a reason like transcription error. No white-out, no scribbling.",
+        "I would correct it per the SOP: one line through the original so it stays readable, the correct value, my initials and today's date, plus the reason for the change."
+      ]
+    },
+    {
+      "id": "Q2.3", "module": 2, "title": "ALCOA+ and data integrity", "type": "Technical knowledge", "speaker": "linda",
+      "say": "Have you heard of ALCOA? What does it stand for?",
+      "probe": "Give me an example of something that would violate data integrity.",
+      "coach": "Examples: sharing log-in credentials, recording data before doing the step, copying a value from a coworker, deleting an out-of-range reading.",
+      "listenFor": "Attributable, Legible, Contemporaneous, Original, Accurate; \"plus\" adds Complete, Consistent, Enduring, Available.",
+      "probeIfShorterThanSeconds": 12,
+      "concepts": [
+        { "id": "a1", "name": "Attributable", "weight": 1, "core": true, "terms": ["attributable", "attribute", "who did it"] },
+        { "id": "l", "name": "Legible", "weight": 1, "core": true, "terms": ["legible", "readable"] },
+        { "id": "c", "name": "Contemporaneous", "weight": 1, "core": true, "terms": ["contemporaneous", "real time", "at the time", "when it happens"] },
+        { "id": "o", "name": "Original", "weight": 1, "core": true, "terms": ["original"] },
+        { "id": "a2", "name": "Accurate", "weight": 1, "core": true, "terms": ["accurate", "accuracy"] },
+        { "id": "plus", "name": "The plus: complete, consistent, enduring, available", "weight": 1, "core": false, "terms": ["complete", "consistent", "enduring", "available"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Yes, ALCOA stands for Attributable, Legible, Contemporaneous, Original and Accurate. ALCOA plus adds Complete, Consistent, Enduring and Available.",
+        "ALCOA is about data integrity. Data has to be attributable to who did it, legible, recorded at the time it happens, the original record, and accurate. The plus adds complete, consistent, enduring and available.",
+        "It's attributable, legible, contemporaneous, original, accurate. Basically you record your own work in real time, clearly, on the original document, and it has to be correct.",
+        "ALCOA means records are attributable, legible, contemporaneous, original and accurate, and with ALCOA plus they're also complete, consistent, enduring and available for review.",
+        "I have. A is attributable, L is legible, C is contemporaneous, O is original, and A is accurate. It's the standard for good data integrity."
+      ]
+    },
+    {
+      "id": "Q2.4", "module": 2, "title": "SOPs and deviations", "type": "Situational judgment", "speaker": "linda",
+      "say": "What would you do if the SOP says one thing, but the senior operator tells you to do it a different way?",
+      "probe": "What's a deviation, and what's a CAPA?",
+      "coach": "Deviation is any departure from an approved procedure or spec. CAPA is Corrective and Preventive Action to fix the root cause. Reporting a problem is always the right answer.",
+      "listenFor": "Follow the approved SOP; don't deviate on your own; escalate to supervisor or QA; understands deviations, CAPA, and change control at a basic level.",
+      "concepts": [
+        { "id": "follow", "name": "Follow the approved SOP", "weight": 1.5, "core": true, "terms": ["follow the sop", "follow the procedure", "stick to the sop", "approved procedure", "do what the sop says", "sop is the", "go by the sop", "follow the written"] },
+        { "id": "escalate", "name": "Escalate to the supervisor or QA", "weight": 1.5, "core": true, "terms": ["supervisor", "qa", "quality", "manager", "lead", "escalate", "report it", "raise it", "bring it up"] },
+        { "id": "respect", "name": "Stay respectful with the senior operator", "weight": 0.5, "core": false, "terms": ["respectful", "politely", "ask them", "explain", "discuss", "talk to"] },
+        { "id": "systems", "name": "Mentioned deviations, CAPA or change control", "weight": 1, "core": false, "terms": ["deviation", "capa", "change control", "corrective", "preventive", "update the sop", "revise"] }
+      ],
+      "redFlags": [
+        { "id": "deviate", "name": "Would deviate from the SOP without escalating", "terms": ["do it their way", "do what the senior operator says", "do it the way they say", "do it the way the senior operator says", "the way the senior operator says", "listen to the senior operator", "they have more experience", "trust their experience", "do what they told me", "go with the operator"] }
+      ],
+      "exampleAnswers": [
+        "I'd follow the approved SOP. I'd politely tell the senior operator that I have to follow the procedure as written, and then bring it to my supervisor or QA. If their way is better, it should go through change control and the SOP gets updated.",
+        "The SOP is what's approved, so that's what I do. I wouldn't deviate on my own. I'd raise the difference with my lead or quality so it can be looked at, and if it was already done differently it might need a deviation.",
+        "I would stick to the written procedure and escalate it. Maybe the operator knows something, but changes have to go through QA and change control, not just verbal instructions.",
+        "Respectfully, I'd say I need to follow the SOP, and then talk to the supervisor. Working outside the procedure would be a deviation, and if there's a real problem with the SOP, a CAPA or revision fixes it properly.",
+        "Follow the SOP and report it. I'd ask my supervisor or QA to clarify. Doing something different from the approved procedure without authorization isn't allowed under GMP."
+      ]
+    },
+    {
+      "id": "Q3.1", "module": 3, "title": "Gowning", "type": "Procedure", "speaker": "linda",
+      "say": "Walk me through how you would gown to enter a Grade B cleanroom.",
+      "probe": "What would you do if your glove tore while you were working?",
+      "coach": "Stop, step away from open product, notify, exit or re-glove per SOP, and document. Don't hide it.",
+      "listenFor": "Remove jewelry and makeup; wash/sanitize hands; top-to-bottom order (hood/bouffant, mask, coverall without touching the floor, boots); sterile gloves, then sanitize; check in mirror; don't touch the outside of the gown; follow the posted SOP.",
+      "concepts": [
+        { "id": "jewelry", "name": "Remove jewelry and makeup", "weight": 1, "core": false, "terms": ["jewelry", "jewellery", "makeup", "watch", "rings", "earrings", "personal items"] },
+        { "id": "hands", "name": "Wash or sanitize hands", "weight": 1, "core": true, "terms": ["wash my hands", "wash hands", "sanitize", "sanitise", "hand hygiene", "alcohol", "ipa"] },
+        { "id": "order", "name": "Top-to-bottom order: hood, mask, coverall, boots", "weight": 1.5, "core": true, "terms": ["top to bottom", "hood", "bouffant", "hair net", "hairnet", "mask", "coverall", "bunny suit", "boots", "shoe covers", "goggles"] },
+        { "id": "floor", "name": "Coverall doesn't touch the floor; don't touch the outside", "weight": 0.75, "core": false, "terms": ["touch the floor", "touching the floor", "outside of the gown", "outside of the suit", "dont touch the outside", "inside out"] },
+        { "id": "gloves", "name": "Sterile gloves, then sanitize", "weight": 1, "core": true, "terms": ["glove", "sterile gloves", "double glove"] },
+        { "id": "mirror", "name": "Check in the mirror", "weight": 0.5, "core": false, "terms": ["mirror", "check myself", "inspect"] },
+        { "id": "sop", "name": "Follow the posted SOP", "weight": 0.5, "core": false, "terms": ["sop", "procedure", "posted", "instructions"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "First I remove jewelry and makeup and wash my hands. Then I gown top to bottom: hood or bouffant, mask, then the coverall without letting it touch the floor, then boots. I put on sterile gloves and sanitize them, check myself in the mirror, and follow the posted SOP the whole time.",
+        "I'd take off my watch and rings, wash and sanitize my hands, then put on a hair cover and face mask, step into the coverall carefully without touching the outside or the floor, put on boot covers and goggles, then sterile gloves and spray them with alcohol.",
+        "Gowning goes from the top down. Hair net and hood, mask, coverall, boots, and gloves last. Before that you remove personal items and do hand hygiene, and at the end you check in the mirror that nothing is exposed.",
+        "Follow the gowning SOP posted at the entry. Remove makeup and jewelry, sanitize hands, don the hood and mask, then the sterile coverall keeping it off the floor, then the boots, then sterile gloves, sanitize, and do a mirror check.",
+        "I'd make sure I have no jewelry on, wash my hands, and put on the gown in order from head to toe, being careful to only touch the inside of the suit. Gloves go on last and get sanitized before I enter."
+      ]
+    },
+    {
+      "id": "Q3.2", "module": 3, "title": "Cleanroom classifications", "type": "Technical knowledge", "speaker": "linda",
+      "say": "What's the difference between a Grade A and a Grade C area?",
+      "probe": "Why do cleanrooms keep positive pressure?",
+      "coach": "Positive pressure pushes air out so particles don't drift into the cleaner room.",
+      "listenFor": "Grade A is the cleanest (critical zone, e.g. biosafety cabinet or filling); B surrounds A; C and D are for less critical steps; classified by particle counts; pressure cascades from cleaner to less clean.",
+      "concepts": [
+        { "id": "acleanest", "name": "Grade A is the cleanest, critical zone", "weight": 1.5, "core": true, "terms": ["cleanest", "most clean", "highest", "critical", "strictest", "most controlled"] },
+        { "id": "examples", "name": "Examples: biosafety cabinet or filling", "weight": 0.75, "core": false, "terms": ["biosafety cabinet", "bsc", "hood", "laminar", "filling", "isolator", "open product"] },
+        { "id": "background", "name": "B surrounds A; C and D for less critical steps", "weight": 1, "core": false, "terms": ["grade b", "background", "surrounds", "less critical", "grade d", "less clean", "prep", "supporting"] },
+        { "id": "particles", "name": "Classified by particle counts", "weight": 1, "core": true, "terms": ["particle", "particles", "particulate", "air quality", "microbial", "counts"] },
+        { "id": "pressure", "name": "Pressure cascades from cleaner to less clean", "weight": 0.75, "core": false, "terms": ["pressure", "cascade", "airflow", "air flows"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Grade A is the cleanest area, the critical zone like a biosafety cabinet or filling line where product is exposed. Grade B surrounds it, and C and D are for less critical steps. They're classified by how many particles are allowed, and pressure cascades from cleaner rooms to less clean ones.",
+        "Grade A has the strictest particle limits and is where open product is handled, for example inside the hood. Grade C is a lower grade used for things like solution prep, with higher allowed particle counts.",
+        "A is the most controlled, critical environment. C is less clean and used for supporting steps. The grades are based on particle and microbial counts, and air pressure is higher in the cleaner areas.",
+        "Grade A is like the laminar flow hood or isolator, the highest cleanliness. Grade C is a background area for less critical work. You classify them by airborne particles.",
+        "The difference is how clean the air has to be. Grade A, the critical zone, allows very few particles. Grade C allows more and is used for less critical processing. Pressure goes from A down to the lower grades."
+      ]
+    },
+    {
+      "id": "Q3.3", "module": 3, "title": "Aseptic behavior", "type": "Technical knowledge", "speaker": "frank",
+      "say": "What are some habits that keep a process aseptic?",
+      "probe": "What is first air?",
+      "coach": "First air is the HEPA-filtered air that reaches the critical site before anything else touches it. Never put your hands between it and open product.",
+      "listenFor": "Slow, deliberate movements; no blocking first air; don't reach over open containers; spray 70% IPA on items entering the hood; minimize talking; close doors promptly.",
+      "concepts": [
+        { "id": "slow", "name": "Slow, deliberate movements", "weight": 1, "core": true, "terms": ["slow", "slowly", "deliberate", "careful movements", "no fast movements", "smooth"] },
+        { "id": "firstair", "name": "Don't block first air", "weight": 1.25, "core": false, "terms": ["first air", "block the air", "blocking the air", "airflow", "hepa"] },
+        { "id": "reach", "name": "Don't reach over open containers", "weight": 1, "core": false, "terms": ["reach over", "reaching over", "over open", "open container"] },
+        { "id": "ipa", "name": "Spray 70% IPA on items entering the hood", "weight": 1, "core": true, "terms": ["ipa", "70 percent", "alcohol", "spray", "wipe down", "sanitize", "disinfect"] },
+        { "id": "talk", "name": "Minimize talking", "weight": 0.5, "core": false, "terms": ["talking", "talk less", "dont talk", "minimize talking", "no talking"] },
+        { "id": "doors", "name": "Close doors promptly", "weight": 0.5, "core": false, "terms": ["door", "doors"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Move slowly and deliberately, never block first air, and don't reach over open containers. Spray anything that goes into the hood with 70 percent IPA, keep talking to a minimum, and close doors right away.",
+        "Aseptic habits include smooth, careful movements, sanitizing gloves and items with alcohol before they enter the hood, keeping my hands out of the airflow to the open product, and not talking over the work.",
+        "Don't put anything between the HEPA filter and the open product, don't reach across open bottles, work slowly, and wipe everything down with IPA before it goes into the biosafety cabinet.",
+        "Keep movements slow so you don't disturb the air, spray in materials with 70 percent alcohol, avoid reaching over open containers, minimize talking and keep doors closed.",
+        "Good aseptic technique is about not disrupting first air, moving deliberately, sanitizing frequently, and limiting things like talking and door openings that bring in particles."
+      ]
+    },
+    {
+      "id": "Q3.4", "module": 3, "title": "Environmental monitoring", "type": "Technical knowledge", "speaker": "linda",
+      "say": "What is environmental monitoring, and why do we do it?",
+      "probe": "What happens if an EM result goes over the action limit?",
+      "coach": "An investigation is opened, the organism identified, impact on product assessed, and cleaning or retraining done as CAPA.",
+      "listenFor": "Viable (settle plates, contact plates, active air) and non-viable (particle counts) monitoring; personnel monitoring (glove/gown plates); alert and action limits; shows the area stays in control.",
+      "concepts": [
+        { "id": "viable", "name": "Viable monitoring: settle, contact plates, active air", "weight": 1.25, "core": true, "terms": ["viable", "settle plate", "contact plate", "agar", "active air", "air sampling", "swab", "microbial", "bacteria"] },
+        { "id": "nonviable", "name": "Non-viable particle counts", "weight": 1, "core": false, "terms": ["non viable", "nonviable", "particle count", "particle counter", "particles"] },
+        { "id": "personnel", "name": "Personnel monitoring (glove/gown plates)", "weight": 0.75, "core": false, "terms": ["personnel", "glove", "gown", "fingertip"] },
+        { "id": "limits", "name": "Alert and action limits", "weight": 1, "core": false, "terms": ["alert limit", "action limit", "limits", "threshold", "specification"] },
+        { "id": "control", "name": "Shows the area stays in control", "weight": 1, "core": true, "terms": ["in control", "clean", "contamination", "trend", "verify", "make sure the room"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Environmental monitoring checks that the cleanroom stays in control. There's viable monitoring like settle plates, contact plates and active air sampling, non-viable particle counts, and personnel monitoring with glove and gown plates. Results are compared to alert and action limits.",
+        "It's testing the room for contamination. We take agar plates and air samples for microbes and use particle counters, and if results go over the limits we investigate. It proves the environment is clean enough for the product.",
+        "EM means monitoring the air, surfaces and people in classified areas for bacteria and particles, so we can see trends and catch contamination before it affects product.",
+        "We do settle plates, contact plates on surfaces, fingertip plates on gloves, and non-viable particle counts. There are alert and action limits, and it shows the area is staying in a state of control.",
+        "Environmental monitoring is the routine sampling of cleanrooms, both microbial and particulate, to verify the area meets its grade and to detect contamination early."
+      ]
+    },
+    {
+      "id": "Q4.1", "module": 4, "title": "The big picture", "type": "Technical knowledge", "speaker": "frank",
+      "say": "Can you describe, at a high level, the steps to make a monoclonal antibody?",
+      "probe": "Where does upstream end and downstream begin?",
+      "coach": "Upstream grows the cells and makes the protein. Downstream separates and purifies it. Harvest is the handoff.",
+      "listenFor": "Cell bank thaw → seed train/expansion → production bioreactor → harvest (centrifuge/depth filtration) → Protein A capture → viral inactivation (low pH) → polishing chromatography → viral filtration → UF/DF (TFF) → fill/finish; upstream vs downstream split.",
+      "concepts": [
+        { "id": "thaw", "name": "Cell bank thaw and seed train / expansion", "weight": 1, "core": false, "terms": ["cell bank", "thaw", "vial", "seed train", "expansion", "expand", "scale up", "inoculum"] },
+        { "id": "bioreactor", "name": "Production bioreactor", "weight": 1, "core": true, "terms": ["bioreactor", "production reactor", "cell culture", "grow the cells"] },
+        { "id": "harvest", "name": "Harvest (centrifuge / depth filtration)", "weight": 1, "core": true, "terms": ["harvest", "centrifuge", "depth filtration", "clarification", "remove the cells"] },
+        { "id": "proteina", "name": "Protein A capture chromatography", "weight": 1, "core": true, "terms": ["protein a", "capture", "chromatography", "affinity"] },
+        { "id": "viral", "name": "Viral inactivation and viral filtration", "weight": 1, "core": false, "terms": ["viral inactivation", "low ph", "virus", "viral filtration", "viral clearance"] },
+        { "id": "polish", "name": "Polishing chromatography", "weight": 0.5, "core": false, "terms": ["polishing", "ion exchange"] },
+        { "id": "ufdf", "name": "UF/DF (TFF)", "weight": 0.75, "core": false, "terms": ["ufdf", "uf df", "ultrafiltration", "diafiltration", "tff", "tangential flow", "concentrate", "buffer exchange"] },
+        { "id": "fill", "name": "Fill / finish", "weight": 0.5, "core": false, "terms": ["fill", "finish", "vials", "formulation"] },
+        { "id": "split", "name": "Upstream vs downstream split", "weight": 0.75, "core": false, "terms": ["upstream", "downstream"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "You thaw a vial from the cell bank, expand the cells through a seed train, and grow them in the production bioreactor. That's upstream. Then you harvest with a centrifuge or depth filtration, capture the antibody on Protein A, do low pH viral inactivation, polishing chromatography, viral filtration, UF/DF with TFF, and finally fill and finish.",
+        "Upstream is growing CHO cells, starting from the cell bank, scaling up and running the bioreactor. Downstream starts at harvest, then purification with Protein A and other chromatography steps, virus removal, concentration by tangential flow filtration, and filling.",
+        "At a high level: cell bank, seed expansion, bioreactor, harvest and clarification, Protein A capture, viral inactivation, polishing columns, viral filter, ultrafiltration and diafiltration, then fill finish.",
+        "Cells make the antibody in a bioreactor after being expanded from a frozen vial. Then the cells are removed at harvest, and the antibody is purified by chromatography, treated to remove viruses, concentrated and put into vials.",
+        "The process splits into upstream, which is cell culture in bioreactors, and downstream, which is harvest, Protein A affinity capture, low pH hold, polishing, viral filtration, UF DF and formulation before fill."
+      ]
+    },
+    {
+      "id": "Q4.2", "module": 4, "title": "Bioreactor parameters", "type": "Technical knowledge", "speaker": "frank",
+      "say": "If you were monitoring a bioreactor, what parameters would you watch?",
+      "probe": "What would you do if the pH reading drifted out of range overnight?",
+      "coach": "Verify the probe against an offline sample, follow the SOP or alarm response, notify the lead, and document. Don't adjust beyond what the batch record allows.",
+      "listenFor": "Temperature (~37°C for CHO), pH (~7.0), dissolved oxygen, agitation, gas flow, viable cell density and viability, glucose/lactate, foam, pressure.",
+      "concepts": [
+        { "id": "temp", "name": "Temperature (~37 °C)", "weight": 1, "core": true, "terms": ["temperature", "temp", "37", "degrees"] },
+        { "id": "ph", "name": "pH (~7.0)", "weight": 1, "core": true, "terms": ["ph"] },
+        { "id": "do", "name": "Dissolved oxygen", "weight": 1, "core": true, "terms": ["dissolved oxygen", "oxygen", "do level", "do2"] },
+        { "id": "agitation", "name": "Agitation and gas flow", "weight": 0.75, "core": false, "terms": ["agitation", "stirring", "rpm", "mixing", "gas flow", "sparge", "sparging", "co2", "airflow"] },
+        { "id": "cells", "name": "Viable cell density and viability", "weight": 0.75, "core": false, "terms": ["cell density", "viability", "cell count", "vcd", "viable cells"] },
+        { "id": "nutrients", "name": "Glucose / lactate", "weight": 0.5, "core": false, "terms": ["glucose", "lactate", "nutrient", "metabolite", "feed"] },
+        { "id": "foam", "name": "Foam and pressure", "weight": 0.5, "core": false, "terms": ["foam", "pressure"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "I'd watch temperature, around 37 degrees for CHO cells, pH around 7, dissolved oxygen, agitation speed and gas flow. I'd also track viable cell density and viability, glucose and lactate, foaming and vessel pressure.",
+        "The key parameters are temperature, pH and dissolved oxygen. Then stirring speed, sparging gases like oxygen and CO2, cell counts and viability, nutrients like glucose, and any foam.",
+        "Temperature, pH, DO, agitation, pressure, and from samples the cell density, viability, glucose and lactate.",
+        "You monitor the environment the cells need: temperature, pH, oxygen levels, mixing, and gas flow, and you sample to check how the cells are growing and what the nutrients look like.",
+        "I'd keep an eye on temp, pH, dissolved oxygen and agitation on the control system, and check cell growth and metabolites from daily samples, plus watch for foam."
+      ]
+    },
+    {
+      "id": "Q4.3", "module": 4, "title": "Buffer prep, pH and conductivity", "type": "Procedure", "speaker": "jordan",
+      "say": "You're making a buffer. How do you make sure it's right?",
+      "probe": "Why measure conductivity and not just pH?",
+      "coach": "Conductivity confirms salt concentration, which controls how proteins bind and elute on chromatography columns.",
+      "listenFor": "Verify raw materials and lot numbers; calibrate or check the pH meter with standards; weigh accurately and record; check pH and conductivity against spec; temperature compensation; label correctly; second-person verification where required.",
+      "concepts": [
+        { "id": "materials", "name": "Verify raw materials and lot numbers", "weight": 1, "core": false, "terms": ["raw material", "lot number", "lot", "expiration", "expiry", "right chemical", "label on the"] },
+        { "id": "calibrate", "name": "Calibrate or check the pH meter with standards", "weight": 1.25, "core": true, "terms": ["calibrate", "calibration", "standards", "buffer standards", "ph 4", "ph 7", "ph 10", "check the meter"] },
+        { "id": "weigh", "name": "Weigh accurately and record", "weight": 1, "core": false, "terms": ["weigh", "balance", "accurately", "record", "document", "batch record", "measure"] },
+        { "id": "spec", "name": "Check pH and conductivity against spec", "weight": 1.25, "core": true, "terms": ["conductivity", "spec", "specification", "range", "within limits", "acceptance"] },
+        { "id": "tempcomp", "name": "Temperature compensation", "weight": 0.5, "core": false, "terms": ["temperature", "compensation", "atc"] },
+        { "id": "label", "name": "Label correctly", "weight": 0.5, "core": false, "terms": ["label"] },
+        { "id": "verify", "name": "Second-person verification", "weight": 0.75, "core": false, "terms": ["second person", "verifier", "verify", "double check", "witness", "someone check"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "I'd verify the raw materials and lot numbers against the batch record, weigh everything accurately and record it, calibrate the pH meter with standards, then check pH and conductivity against the spec with temperature compensation. Then I'd label it and get a second-person verification if required.",
+        "Follow the recipe in the batch record, double check each chemical and its lot, use a calibrated balance, and when it's mixed, measure the pH and conductivity to confirm they're in range before labeling.",
+        "Make sure the pH meter is calibrated with buffer standards first. Then weigh the components, record the weights, dissolve and mix, and test pH and conductivity against the acceptance criteria. Have someone verify the critical steps.",
+        "I'd check the materials are the right ones and not expired, measure carefully, document everything, and confirm the final pH and conductivity are within spec. The meters need to be calibrated and temperature compensated.",
+        "By following the SOP: verified materials, accurate weighing with records, calibrated instruments, testing pH and conductivity against the specification, correct labeling and a second verifier."
+      ]
+    },
+    {
+      "id": "Q4.4", "module": 4, "title": "Chromatography (AKTA)", "type": "Equipment", "speaker": "frank",
+      "say": "Have you worked with chromatography or an AKTA system? Explain what it does.",
+      "probe": "What does the UV trace tell you during elution?",
+      "coach": "The UV 280 nanometer peak shows protein coming off the column. It's how you know when to start and stop collecting product.",
+      "listenFor": "Separates protein from impurities by binding differences (affinity, ion exchange, size); steps: equilibrate, load, wash, elute, strip/sanitize; monitors UV, conductivity, pH, pressure.",
+      "concepts": [
+        { "id": "separate", "name": "Separates protein from impurities by binding", "weight": 1.5, "core": true, "terms": ["separate", "separates", "purify", "purification", "impurities", "bind", "binding"] },
+        { "id": "types", "name": "Affinity, ion exchange, size exclusion", "weight": 0.75, "core": false, "terms": ["affinity", "ion exchange", "size exclusion", "protein a", "resin", "column"] },
+        { "id": "steps", "name": "Equilibrate, load, wash, elute, strip/sanitize", "weight": 1.25, "core": true, "terms": ["equilibrate", "equilibration", "load", "wash", "elute", "elution", "strip", "sanitize", "regenerate"] },
+        { "id": "monitor", "name": "Monitors UV, conductivity, pH, pressure", "weight": 1, "core": false, "terms": ["uv", "280", "absorbance", "conductivity", "ph", "pressure", "chromatogram", "trace"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "I've practiced with an AKTA in training. It separates the protein from impurities based on how they bind to the resin, like affinity, ion exchange or size. The steps are equilibrate, load, wash, elute, and strip or sanitize, and it monitors UV, conductivity, pH and pressure.",
+        "An AKTA runs chromatography columns to purify protein. You equilibrate the column, load the sample, wash off what doesn't bind, then elute the product, while watching the UV absorbance and conductivity traces.",
+        "Chromatography purifies the antibody by having it stick to a column and washing away impurities, then releasing it with a different buffer. The AKTA controls the flow and records UV at 280, pH, conductivity and pressure.",
+        "Not on a real one yet, but I know it's a liquid chromatography system for protein purification. Different resins separate by affinity, charge or size, and you follow equilibration, loading, washing and elution steps.",
+        "It's a purification system. The protein binds to the column resin, impurities get washed through, and you collect the product during elution by watching the UV peak. Afterwards the column is stripped and sanitized."
+      ]
+    },
+    {
+      "id": "Q4.5", "module": 4, "title": "Filtration and TFF", "type": "Technical knowledge", "speaker": "frank",
+      "say": "What's the difference between normal-flow filtration and tangential flow filtration?",
+      "probe": "Why do we integrity-test a sterilizing filter after use?",
+      "coach": "It proves the filter wasn't damaged during filtration, so the product was truly sterile-filtered. A failed test means a deviation.",
+      "listenFor": "Normal (dead-end) flow pushes everything through the filter — used for sterile filtration and clarification; TFF flows across the membrane — used to concentrate and buffer-exchange (UF/DF); filter integrity testing (bubble point, pressure hold).",
+      "concepts": [
+        { "id": "normal", "name": "Normal (dead-end) flow pushes everything through", "weight": 1.25, "core": true, "terms": ["dead end", "straight through", "through the filter", "perpendicular", "pushes everything", "directly through"] },
+        { "id": "normaluse", "name": "Used for sterile filtration and clarification", "weight": 0.75, "core": false, "terms": ["sterile filtration", "sterilizing", "clarification", "remove bacteria", "0 2 micron", "02 micron"] },
+        { "id": "tff", "name": "TFF flows across the membrane", "weight": 1.25, "core": true, "terms": ["across", "parallel", "tangential", "sweeps", "recirculate", "cross flow", "crossflow"] },
+        { "id": "tffuse", "name": "TFF concentrates and buffer-exchanges (UF/DF)", "weight": 1, "core": false, "terms": ["concentrate", "buffer exchange", "ultrafiltration", "diafiltration", "uf df", "ufdf"] },
+        { "id": "integrity", "name": "Filter integrity testing (bubble point, pressure hold)", "weight": 0.5, "core": false, "terms": ["integrity", "bubble point", "pressure hold", "diffusion test"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "In normal or dead-end flow, the liquid is pushed straight through the filter, which is used for sterile filtration and clarification. In tangential flow filtration the liquid flows across the membrane, so it's used to concentrate the product and do buffer exchange, UF DF. Filters also get integrity tested with a bubble point or pressure hold.",
+        "Normal flow goes directly through the filter and everything bigger than the pores gets caught. TFF sweeps the liquid parallel to the membrane and recirculates it, which keeps the filter from clogging and lets you concentrate or diafilter the protein.",
+        "Dead-end filtration is for things like sterilizing filtration, all the fluid passes through. Tangential flow is cross flow across the membrane, used for ultrafiltration and diafiltration.",
+        "With normal flow you push the whole volume through a filter, like a 0.2 micron sterile filter. With TFF the flow runs along the membrane surface and you keep recirculating, so you can concentrate and exchange buffer.",
+        "The direction of flow. Normal flow is perpendicular, straight through. Tangential flow is across the membrane surface. TFF is for concentration and buffer exchange, normal flow is for clarification and sterile filtration."
+      ]
+    },
+    {
+      "id": "Q5.1", "module": 5, "title": "Autoclave", "type": "Equipment", "speaker": "frank",
+      "say": "How does an autoclave sterilize, and how do you know a cycle worked?",
+      "probe": "What would you do if the cycle printout showed the temperature dipped below set point?",
+      "coach": "The load is not sterile. Don't use it, quarantine or re-run per SOP, notify, and document.",
+      "listenFor": "Saturated steam under pressure, typically 121°C for a validated time; proper loading so steam penetrates; chemical indicators/tape and biological indicators; review the cycle printout for temperature, pressure and time.",
+      "concepts": [
+        { "id": "steam", "name": "Saturated steam under pressure", "weight": 1.5, "core": true, "terms": ["steam", "pressure", "saturated", "moist heat"] },
+        { "id": "temp", "name": "121 °C for a validated time", "weight": 1, "core": false, "terms": ["121", "temperature", "degrees", "validated time", "minutes", "time"] },
+        { "id": "loading", "name": "Proper loading so steam penetrates", "weight": 0.75, "core": false, "terms": ["load", "loading", "penetrate", "overload", "spacing", "wrapped", "loosen caps"] },
+        { "id": "indicators", "name": "Chemical tape and biological indicators", "weight": 1, "core": true, "terms": ["indicator", "tape", "biological indicator", "bi", "spore", "chemical indicator", "color change"] },
+        { "id": "printout", "name": "Review the cycle printout (temperature, pressure, time)", "weight": 1, "core": true, "terms": ["printout", "print out", "cycle record", "chart", "cycle data", "report", "review the cycle"] }
+      ],
+      "redFlags": [
+        { "id": "usefailed", "name": "Would use a load from a failed cycle", "terms": ["use it anyway", "probably fine", "still use the load"] }
+      ],
+      "exampleAnswers": [
+        "An autoclave sterilizes with saturated steam under pressure, usually 121 degrees Celsius for a validated time. You load it properly so steam can penetrate, and you know it worked by checking chemical indicator tape, biological indicators, and reviewing the cycle printout for temperature, pressure and time.",
+        "It uses pressurized steam to kill microorganisms. To confirm the cycle, I'd look at the printout to make sure it reached the right temperature and time, check that the indicator tape changed color, and use biological indicators when required.",
+        "Moist heat under pressure, typically 121 C. Load it so items aren't packed too tightly, then after the cycle verify the cycle record and the chemical and biological indicators.",
+        "Steam under pressure gets hot enough to kill spores. I'd make sure the cycle parameters on the chart met the validated settings, and that the autoclave tape and any BI passed.",
+        "The autoclave uses saturated steam at high pressure for a set time. A successful cycle shows correct temperature, pressure and time on the printout, and the indicators show sterilization conditions were met."
+      ]
+    },
+    {
+      "id": "Q5.2", "module": 5, "title": "CIP and SIP", "type": "Technical knowledge", "speaker": "frank",
+      "say": "What do CIP and SIP mean?",
+      "probe": "What are the pros and cons of single-use versus stainless steel?",
+      "coach": "Single-use: faster changeover, less cleaning validation, lower cross-contamination risk; but more waste, ongoing bag cost, and supply risk.",
+      "listenFor": "Clean-in-Place (automated cleaning with caustic, acid, rinses — no disassembly); Steam-in-Place (sterilizing vessels and lines with steam); used on fixed stainless-steel equipment; single-use systems reduce the need for them.",
+      "probeIfShorterThanSeconds": 12,
+      "concepts": [
+        { "id": "cip", "name": "Clean-in-Place", "weight": 1.5, "core": true, "terms": ["clean in place", "cleaning in place"] },
+        { "id": "sip", "name": "Steam-in-Place", "weight": 1.5, "core": true, "terms": ["steam in place", "sterilize in place", "sterilization in place"] },
+        { "id": "how", "name": "Automated, caustic/acid rinses, no disassembly", "weight": 0.75, "core": false, "terms": ["automated", "caustic", "acid", "rinse", "without taking apart", "no disassembly", "without disassembl", "sodium hydroxide"] },
+        { "id": "steel", "name": "Used on fixed stainless-steel equipment", "weight": 0.75, "core": false, "terms": ["stainless", "steel", "tanks", "vessels", "lines", "piping", "fixed equipment"] },
+        { "id": "su", "name": "Single-use systems reduce the need", "weight": 0.5, "core": false, "terms": ["single use", "disposable", "bags"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "CIP is Clean-in-Place, automated cleaning of tanks and lines with caustic, acid and rinses without taking anything apart. SIP is Steam-in-Place, sterilizing the vessels and lines with steam. They're used on fixed stainless steel equipment, and single-use systems reduce the need for them.",
+        "Clean in place and steam in place. CIP cleans the equipment where it is, SIP sterilizes it with steam afterwards.",
+        "CIP means cleaning in place, running cleaning solutions like sodium hydroxide through stainless steel vessels and piping automatically. SIP means steam in place, sterilizing them with pressurized steam.",
+        "They're for stainless steel systems. Clean-in-place washes the equipment without disassembling it, and steam-in-place sterilizes it. With single-use bags you don't need them as much.",
+        "CIP is clean in place and SIP is sterilize or steam in place, the automated cleaning and sterilization of fixed equipment like bioreactors and transfer lines."
+      ]
+    },
+    {
+      "id": "Q5.3", "module": 5, "title": "Calibration and equipment status", "type": "Equipment", "speaker": "jordan",
+      "say": "Before you use a balance or pH meter, what do you check?",
+      "probe": "What if the calibration sticker is expired?",
+      "coach": "Don't use it. Tag it out, notify metrology or your lead, and use a qualified backup.",
+      "listenFor": "Calibration sticker is current; equipment log/status tag is clean and released; daily check or verification with standards; level the balance; record the equipment ID in the batch record.",
+      "concepts": [
+        { "id": "calib", "name": "Calibration sticker is current", "weight": 1.5, "core": true, "terms": ["calibration", "sticker", "calibrated", "due date", "not expired", "in date"] },
+        { "id": "status", "name": "Status tag / log shows clean and released", "weight": 1, "core": false, "terms": ["status tag", "tag", "clean", "released", "logbook", "log book", "equipment log", "status"] },
+        { "id": "daily", "name": "Daily check or verification with standards", "weight": 1, "core": true, "terms": ["daily check", "verification", "verify", "standards", "check weight", "test weight", "buffer"] },
+        { "id": "level", "name": "Level the balance", "weight": 0.5, "core": false, "terms": ["level", "bubble", "leveling"] },
+        { "id": "record", "name": "Record the equipment ID in the batch record", "weight": 0.75, "core": false, "terms": ["equipment id", "asset number", "record", "batch record", "document"] }
+      ],
+      "redFlags": [
+        { "id": "useexpired", "name": "Would use expired or unreleased equipment", "terms": ["use it anyway", "probably still fine", "doesnt really matter"] }
+      ],
+      "exampleAnswers": [
+        "I'd check the calibration sticker is current and the status tag shows it's clean and released. I'd do the daily verification with standards, level the balance, and record the equipment ID in the batch record.",
+        "Make sure it's in calibration, look at the logbook and status label, run the daily check with check weights or pH buffers, and write down the instrument number.",
+        "First the calibration due date. Then whether it's been cleaned and released for use, then a verification with standards before using it, and documenting which equipment I used.",
+        "For a balance: calibration sticker in date, level bubble centered, daily check weights pass. For a pH meter: calibrated with standard buffers. And I record the asset number in the batch record.",
+        "I'd verify it's calibrated and not expired, the equipment status tag says clean, do the required daily check, and document it."
+      ]
+    },
+    {
+      "id": "Q5.4", "module": 5, "title": "Line clearance and cleaning", "type": "Procedure", "speaker": "linda",
+      "say": "What is line clearance, and why is it important?",
+      "probe": "Why do cleanrooms rotate disinfectants?",
+      "coach": "Different agents kill different organisms; a sporicide is needed for spore-forming bacteria that resist everyday disinfectants.",
+      "listenFor": "Confirming the room and equipment are free of materials, labels and documents from the previous batch; prevents mix-ups and cross-contamination; usually second-person verified; room cleaning with rotating disinfectants and a sporicide.",
+      "concepts": [
+        { "id": "free", "name": "Room/equipment free of previous batch materials, labels, documents", "weight": 1.5, "core": true, "terms": ["previous batch", "last batch", "materials", "labels", "documents", "leftover", "nothing left", "removed", "clear the room"] },
+        { "id": "mixup", "name": "Prevents mix-ups and cross-contamination", "weight": 1.25, "core": true, "terms": ["mix up", "mixup", "cross contamination", "contamination", "wrong label", "wrong material", "confusion"] },
+        { "id": "second", "name": "Second-person verified", "weight": 0.75, "core": false, "terms": ["second person", "verified", "verify", "sign off", "qa", "checked by"] },
+        { "id": "clean", "name": "Cleaning with rotating disinfectants and sporicide", "weight": 0.75, "core": false, "terms": ["clean", "disinfect", "sporicide", "rotate", "rotating"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Line clearance is confirming the room and equipment are free of materials, labels and documents from the previous batch before starting a new one. It prevents mix-ups and cross-contamination, and it's usually verified by a second person. The room is also cleaned with rotating disinfectants and a sporicide.",
+        "Before a new batch you check that nothing from the last batch is left, no leftover components, labels or paperwork. That way you can't mix up products or labels. Someone else verifies and signs.",
+        "It's clearing the line between batches. Everything from the previous product is removed and the area is cleaned, so there's no cross contamination or wrong labels getting used.",
+        "Line clearance makes sure the area is empty of anything from prior work, materials, documents and labels, and it's checked and signed by a second person or QA to prevent mix-ups.",
+        "You inspect and clear the room and equipment of all materials from the last run and document it. It matters because a leftover label or component could end up in the wrong batch."
+      ]
+    },
+    {
+      "id": "Q6.1", "module": 6, "title": "Lab and plant safety", "type": "Safety", "speaker": "jordan",
+      "say": "What safety hazards would you expect in a manufacturing suite, and how do you protect yourself?",
+      "probe": "You spill a liter of one molar sodium hydroxide on the floor. What do you do?",
+      "coach": "Alert others, isolate the area, check the SDS and PPE, use the spill kit (neutralize and absorb), dispose properly, report and document. If anyone is splashed, use the eyewash or shower for 15 minutes first.",
+      "listenFor": "Chemical (caustic, acids — read the SDS), biological (BSL-1/2 cell lines), steam and hot surfaces, pressurized vessels, heavy lifting, slips; PPE (safety glasses, gloves, lab coat/gown, face shield); lockout/tagout; know eyewash and shower locations; report near-misses.",
+      "concepts": [
+        { "id": "chemical", "name": "Chemical hazards; read the SDS", "weight": 1, "core": true, "terms": ["chemical", "caustic", "acid", "sodium hydroxide", "sds", "safety data sheet", "corrosive"] },
+        { "id": "bio", "name": "Biological hazards (BSL-1/2)", "weight": 0.75, "core": false, "terms": ["biological", "biohazard", "bsl", "cell line", "infectious"] },
+        { "id": "physical", "name": "Steam, hot surfaces, pressure, lifting, slips", "weight": 1, "core": false, "terms": ["steam", "hot", "burn", "pressure", "pressurized", "lifting", "heavy", "slip", "trip", "wet floor", "sharps"] },
+        { "id": "ppe", "name": "PPE: glasses, gloves, gown, face shield", "weight": 1.25, "core": true, "terms": ["ppe", "safety glasses", "goggles", "gloves", "lab coat", "gown", "face shield", "protective equipment"] },
+        { "id": "loto", "name": "Lockout/tagout", "weight": 0.75, "core": false, "terms": ["lockout", "lock out", "tagout", "tag out", "loto"] },
+        { "id": "eyewash", "name": "Know eyewash and shower locations", "weight": 0.5, "core": false, "terms": ["eyewash", "eye wash", "safety shower", "shower"] },
+        { "id": "nearmiss", "name": "Report near-misses", "weight": 0.5, "core": false, "terms": ["near miss", "report", "incident"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "I'd expect chemical hazards like caustics and acids, so I'd read the SDS, biological hazards from cell lines, steam and hot surfaces, pressurized vessels, heavy lifting and slips. I'd protect myself with PPE like safety glasses, gloves, gown and face shield, follow lockout tagout, know where the eyewash and shower are, and report near misses.",
+        "Hazards include corrosive chemicals, biohazards, burns from steam, pressure, lifting and wet floors. You wear the right PPE, check the safety data sheet before handling chemicals, and use lockout tagout on equipment.",
+        "Chemical splashes, steam, hot equipment, pressurized tanks and lifting. I'd wear goggles, gloves and a face shield when needed, know the eyewash station, and report anything unsafe.",
+        "There are chemical, biological and physical hazards. The way to protect yourself is training, PPE, reading SDSs, following SOPs and lockout procedures, and reporting near misses so they get fixed.",
+        "Things like caustic cleaning solutions, BSL-2 cells, autoclave steam, sharp objects and trip hazards. I'd use the right protective equipment, follow safety procedures, and know where the emergency shower and eyewash are."
+      ]
+    },
+    {
+      "id": "Q6.2", "module": 6, "title": "Quality mindset", "type": "General", "speaker": "linda",
+      "say": "What does quality mean to you in this job?",
+      "probe": "What's the difference between QA and QC?",
+      "coach": "QC tests samples (raw materials, in-process, final product). QA oversees systems: reviews records, approves deviations, releases batches.",
+      "listenFor": "Quality is everyone's job, not just QA's; right first time; speaking up; attention to detail; the patient at the end of the line.",
+      "concepts": [
+        { "id": "everyone", "name": "Quality is everyone's job", "weight": 1.25, "core": true, "terms": ["everyone", "everybody", "my job", "my responsibility", "not just qa", "all of us", "own it"] },
+        { "id": "rft", "name": "Right first time", "weight": 0.75, "core": false, "terms": ["right first time", "right the first time", "correctly the first time", "first time right"] },
+        { "id": "speak", "name": "Speaking up about problems", "weight": 1, "core": false, "terms": ["speak up", "speaking up", "report", "raise", "say something", "escalate"] },
+        { "id": "detail", "name": "Attention to detail", "weight": 0.75, "core": false, "terms": ["detail", "careful", "precise", "accurate", "double check"] },
+        { "id": "patient", "name": "The patient at the end of the line", "weight": 1.25, "core": true, "terms": ["patient", "people who take", "end user", "safe product", "someone's life"] }
+      ],
+      "redFlags": [
+        { "id": "qajob", "name": "Treats quality as only QA's job", "terms": ["thats qas job", "qa handles that", "not my job"] }
+      ],
+      "exampleAnswers": [
+        "Quality is everyone's job, not just QA's. It means doing things right the first time, paying attention to detail, speaking up when something isn't right, and remembering there's a patient at the end of the line.",
+        "To me quality means the product is safe for the patient who receives it. That depends on every operator following procedures carefully and reporting problems instead of ignoring them.",
+        "It's my responsibility as much as anyone's. Be precise, do it correctly the first time, document honestly, and raise issues right away.",
+        "Quality means consistency and safety. Everybody owns it, from operators to QA, because a mistake on the floor can reach a patient.",
+        "Doing every step carefully and correctly, double checking my work, and speaking up, because the medicine we make ends up in someone's body."
+      ]
+    },
+    {
+      "id": "Q6.3", "module": 6, "title": "Modalities", "type": "Technical knowledge", "speaker": "frank",
+      "say": "Biotech makes many kinds of drugs now. Which types can you name, and how do they differ?",
+      "probe": "Why is cell therapy manufacturing harder to scale than antibody manufacturing?",
+      "coach": "Autologous cell therapy is one batch per patient, with strict chain of identity, short shelf life, and high variability between patient cells.",
+      "listenFor": "Small molecules (chemical synthesis, pills); biologics such as monoclonal antibodies and proteins (made in living cells); RNA therapies (mRNA vaccines, siRNA, often in lipid nanoparticles); cell and gene therapies (CAR-T, viral vectors such as AAV and lentivirus); autologous vs allogeneic.",
+      "concepts": [
+        { "id": "small", "name": "Small molecules (chemical synthesis, pills)", "weight": 1, "core": true, "terms": ["small molecule", "pill", "tablet", "chemical synthesis", "aspirin"] },
+        { "id": "bio", "name": "Biologics: antibodies and proteins made in living cells", "weight": 1, "core": true, "terms": ["biologic", "antibody", "antibodies", "protein", "living cells", "insulin"] },
+        { "id": "rna", "name": "RNA therapies (mRNA, siRNA, lipid nanoparticles)", "weight": 0.75, "core": false, "terms": ["mrna", "rna", "sirna", "lipid nanoparticle", "vaccine"] },
+        { "id": "cgt", "name": "Cell and gene therapies (CAR-T, AAV, lentivirus)", "weight": 1, "core": false, "terms": ["cell therapy", "gene therapy", "car t", "cart", "aav", "lentivirus", "viral vector"] },
+        { "id": "auto", "name": "Autologous vs allogeneic", "weight": 0.5, "core": false, "terms": ["autologous", "allogeneic", "own cells", "donor"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Small molecules are made by chemical synthesis and are usually pills. Biologics like monoclonal antibodies and proteins are made in living cells. RNA therapies like mRNA vaccines and siRNA are often delivered in lipid nanoparticles. And cell and gene therapies like CAR-T use the patient's cells or viral vectors like AAV and lentivirus, autologous or allogeneic.",
+        "There are small molecule drugs, which are chemical pills, biologics such as antibodies grown in cells, mRNA vaccines, and cell and gene therapies.",
+        "Small molecules versus large molecules. Large molecule biologics like antibodies come from living cells and are much more complex. Then newer ones: RNA medicines and gene therapies using viral vectors, and cell therapies like CAR-T.",
+        "Pills like aspirin are small molecules. Biologics include insulin and monoclonal antibodies. There are also mRNA vaccines in lipid nanoparticles, gene therapy with AAV, and CAR-T cell therapy, which can be autologous from the patient or allogeneic from a donor.",
+        "Small molecules, biologics like antibodies, RNA-based therapies, and cell and gene therapies. They differ in how they're made, chemistry versus living cells versus modifying genes or cells."
+      ]
+    },
+    {
+      "id": "Q7.1", "module": 7, "title": "Owning a mistake", "type": "Behavioral", "speaker": "simone",
+      "say": "Tell me about a time you made a mistake at work. What did you do?",
+      "probe": "How did your supervisor react?",
+      "coach": "This is the most important GMP behavior question. Hiring managers want someone who reports problems, not hides them. Use STAR: Situation, Task, Action, Result.",
+      "listenFor": "A real mistake; reported it quickly; fixed it; changed a habit to prevent it again.",
+      "probeIfShorterThanSeconds": 25,
+      "concepts": [
+        { "id": "mistake", "name": "Described a real mistake (situation)", "weight": 1, "core": true, "terms": ["mistake", "error", "i made", "i forgot", "i missed", "wrong", "messed up", "i accidentally", "i miscounted"] },
+        { "id": "reported", "name": "Reported it quickly", "weight": 1.5, "core": true, "terms": ["told my", "reported", "let my", "informed", "notified", "admitted", "went to my supervisor", "told the manager", "owned up", "right away"] },
+        { "id": "fixed", "name": "Fixed it (action)", "weight": 1, "core": false, "terms": ["fixed", "corrected", "redid", "resolved", "made it right", "solved"] },
+        { "id": "prevent", "name": "Changed a habit to prevent it again (learning)", "weight": 1.25, "core": true, "terms": ["learned", "now i", "since then", "double check", "checklist", "prevent", "never happened again", "changed how", "make sure"] }
+      ],
+      "redFlags": [
+        { "id": "hide", "name": "Would hide a mistake", "terms": ["nobody noticed", "didnt tell anyone", "kept it to myself", "covered it up", "hid it", "no one found out", "fixed it before anyone"] },
+        { "id": "nomistake", "name": "Claimed never to make mistakes", "terms": ["never made a mistake", "i dont make mistakes", "cant think of any mistake"] }
+      ],
+      "exampleAnswers": [
+        "At my warehouse job I shipped an order with the wrong quantity because I misread the pick list. As soon as I realized, I told my supervisor, we contacted the customer and sent the missing items. After that I started double checking every pick list against the screen, and it didn't happen again.",
+        "In a restaurant job I once forgot to label a prep container with the date. I reported it to the manager right away, we threw it out to be safe, and since then I label everything immediately when I prep it.",
+        "I made a cash counting error at the end of my shift once. I told my manager instead of trying to cover it, we recounted together and found it. I learned to count twice and use a checklist, which I still do.",
+        "During training I skipped a step in a procedure. I admitted it to the instructor, we documented it and I redid the step correctly. Now I read each step and check it off before moving on.",
+        "Once I entered the wrong date on a delivery form. I noticed it, let my lead know right away and corrected it properly. It taught me to slow down and double check paperwork."
+      ]
+    },
+    {
+      "id": "Q7.2", "module": 7, "title": "Following procedures", "type": "Behavioral", "speaker": "simone",
+      "say": "Describe a job where you had to follow strict rules or checklists.",
+      "probe": "Was there ever a time you thought a rule was wrong? What did you do?",
+      "coach": "Right answer: follow it, raise the concern through the proper channel, suggest an improvement.",
+      "listenFor": "Examples from food service, healthcare, military, warehouse, retail cash handling, etc.; explains why the rules mattered; consistency even when no one was watching.",
+      "probeIfShorterThanSeconds": 25,
+      "concepts": [
+        { "id": "example", "name": "Gave a specific job example", "weight": 1.25, "core": true, "terms": ["food service", "restaurant", "kitchen", "hospital", "healthcare", "military", "army", "navy", "warehouse", "retail", "cash", "factory", "job", "worked"] },
+        { "id": "rules", "name": "Described the rules or checklists", "weight": 1, "core": true, "terms": ["checklist", "rules", "procedure", "protocol", "steps", "policy", "sop", "regulations"] },
+        { "id": "why", "name": "Explained why the rules mattered", "weight": 1, "core": false, "terms": ["because", "important", "safety", "safe", "health", "mattered", "so that", "prevent", "customers"] },
+        { "id": "consistent", "name": "Consistent even when no one was watching", "weight": 1, "core": false, "terms": ["every time", "consistent", "no one was watching", "nobody was watching", "always", "even when"] }
+      ],
+      "redFlags": [
+        { "id": "shortcut", "name": "Took shortcuts or skipped steps", "terms": ["skip steps when", "cut corners", "skipped the checklist", "didnt bother"] }
+      ],
+      "exampleAnswers": [
+        "I worked in a restaurant kitchen where we had strict food safety rules and temperature checklists. Those rules mattered because customers could get sick. I followed them every time, even on busy nights when no one was watching.",
+        "In the army everything had a procedure, from maintaining equipment to inventory. I learned that following the checklist exactly keeps people safe, and I was consistent about it.",
+        "As a cashier I had to follow cash handling procedures, counting the drawer in and out and logging everything. It mattered for accuracy and trust, and I always did it the same way.",
+        "In a warehouse we had safety rules for forklifts and a checklist before each shift. I always did the inspection because skipping it could get someone hurt.",
+        "I was a nursing assistant and followed infection control protocols, hand washing and checklists for each patient. Patients' health depended on it, so I did it consistently."
+      ]
+    },
+    {
+      "id": "Q7.3", "module": 7, "title": "Teamwork and conflict", "type": "Behavioral", "speaker": "simone",
+      "say": "Tell me about a time you disagreed with a coworker. How did you handle it?",
+      "probe": "What would you do differently now?",
+      "coach": "Avoid blaming the other person. Show you can work closely with others in a gowned team for 12 hours.",
+      "listenFor": "Stayed calm and respectful; listened; focused on the task, not the person; involved a supervisor if needed; positive outcome.",
+      "probeIfShorterThanSeconds": 25,
+      "concepts": [
+        { "id": "situation", "name": "Described the disagreement", "weight": 0.75, "core": true, "terms": ["disagreed", "disagreement", "conflict", "coworker", "co worker", "colleague", "teammate", "different opinion"] },
+        { "id": "calm", "name": "Stayed calm and respectful", "weight": 1, "core": true, "terms": ["calm", "respectful", "respect", "polite", "professional", "didnt argue"] },
+        { "id": "listen", "name": "Listened to the other person", "weight": 1, "core": false, "terms": ["listened", "listen", "heard them out", "understand their", "their side", "their point"] },
+        { "id": "task", "name": "Focused on the task, not the person", "weight": 0.75, "core": false, "terms": ["task", "the job", "the goal", "not personal", "focused on", "best way"] },
+        { "id": "supervisor", "name": "Involved a supervisor if needed", "weight": 0.5, "core": false, "terms": ["supervisor", "manager", "lead"] },
+        { "id": "outcome", "name": "Positive outcome", "weight": 1, "core": true, "terms": ["worked it out", "resolved", "agreed", "compromise", "got along", "better", "outcome", "in the end", "ended up"] }
+      ],
+      "redFlags": [
+        { "id": "blame", "name": "Blamed the other person", "terms": ["it was their fault", "they were wrong and", "they were lazy", "they were stupid", "i told them off"] }
+      ],
+      "exampleAnswers": [
+        "A coworker and I disagreed about how to organize the stockroom. I stayed calm, listened to their reasons, and we focused on what would make the job faster. We combined both ideas and the new layout worked better.",
+        "In a group project a teammate wanted to skip a step I thought was important. I asked to talk privately, heard them out, and explained my concern respectfully. We checked with the supervisor and agreed to keep the step.",
+        "I disagreed with a colleague on shift about who should handle a task. Instead of arguing I asked what they thought was fair, we found a compromise, and we worked well together after that.",
+        "There was a conflict about scheduling breaks. I kept it professional, made it about the work and not the person, and when we couldn't agree we asked our lead. It got resolved and we got along fine.",
+        "A teammate thought my way of doing inventory was too slow. I listened, tried their suggestion, and showed where mine caught errors. In the end we used a mix of both."
+      ]
+    },
+    {
+      "id": "Q7.4", "module": 7, "title": "Shifts and pressure", "type": "Behavioral", "speaker": "simone",
+      "say": "Our suites run around the clock. Are you able to work twelve-hour shifts, nights or weekends? How do you stay focused late in a shift?",
+      "probe": "Tell me about a time you worked under a tight deadline.",
+      "coach": "Be honest about availability. Reliability and attendance are top reasons associates are let go in year one.",
+      "listenFor": "Honest availability; reliable transportation; strategies for focus (breaks, checklists, double-checking); punctuality record.",
+      "concepts": [
+        { "id": "availability", "name": "Gave honest availability", "weight": 1.25, "core": true, "terms": ["yes", "available", "able to", "can work", "nights", "weekends", "12 hour", "twelve hour", "flexible", "any shift"] },
+        { "id": "transport", "name": "Reliable transportation", "weight": 0.75, "core": false, "terms": ["car", "transportation", "drive", "commute", "reliable ride"] },
+        { "id": "focus", "name": "Strategies to stay focused (breaks, checklists, double-checking)", "weight": 1.25, "core": true, "terms": ["break", "checklist", "double check", "sleep", "rest", "hydrated", "water", "eat", "stretch", "routine", "focus"] },
+        { "id": "punctual", "name": "Punctuality and attendance", "weight": 0.75, "core": false, "terms": ["on time", "punctual", "attendance", "never late", "reliable", "dependable", "missed"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Yes, I can work twelve-hour shifts, nights and weekends, and I have my own car so getting here isn't a problem. To stay focused late in a shift I take my breaks, stay hydrated, and use checklists and double check my work. I've had perfect attendance at my last job.",
+        "I'm available for nights and weekends. I keep a regular sleep routine on night weeks, eat properly during breaks, and slow down and double check when I'm tired.",
+        "I can do twelve hours. At my last job I worked overnight shifts, and I stayed sharp by taking short breaks, stretching, and following the checklist step by step. I was never late.",
+        "Yes, I'm flexible with shifts. I make sure I'm rested before a shift, and late at night I rely on routines and double checking, because that's when mistakes happen.",
+        "I can work any shift, including weekends. I'm reliable and punctual, and I stay focused by taking my breaks and keeping my energy up with water and food."
+      ]
+    },
+    {
+      "id": "Q7.5", "module": 7, "title": "Situational: the alarm", "type": "Situational judgment", "speaker": "jordan",
+      "say": "You're alone in the suite near the end of your shift. A bioreactor alarm goes off and you're not sure what it means. What do you do?",
+      "probe": "What if you can't reach anyone?",
+      "coach": "Follow the escalation list in the SOP. Asking for help is a strength, not a weakness.",
+      "listenFor": "Don't ignore or silence it without action; check the alarm response SOP; contact the lead or on-call; don't make unauthorized changes; document time and actions; hand off clearly to the next shift.",
+      "concepts": [
+        { "id": "noignore", "name": "Don't ignore or silence it without action", "weight": 1, "core": false, "terms": ["not ignore", "never ignore", "dont ignore", "take it seriously", "respond", "acknowledge"] },
+        { "id": "sop", "name": "Check the alarm response SOP", "weight": 1.25, "core": true, "terms": ["sop", "alarm response", "procedure", "check the manual", "look up the alarm"] },
+        { "id": "contact", "name": "Contact the lead or on-call", "weight": 1.25, "core": true, "terms": ["lead", "on call", "oncall", "supervisor", "call", "contact", "manager", "escalate", "phone"] },
+        { "id": "nochanges", "name": "No unauthorized changes", "weight": 0.75, "core": false, "terms": ["wouldnt change", "not change", "no changes", "unauthorized", "not adjust", "dont touch", "wouldnt adjust"] },
+        { "id": "document", "name": "Document time and actions", "weight": 0.75, "core": false, "terms": ["document", "write down", "record", "log", "time"] },
+        { "id": "handoff", "name": "Clear handoff to the next shift", "weight": 0.5, "core": false, "terms": ["next shift", "handoff", "hand off", "pass on", "shift change"] }
+      ],
+      "redFlags": [
+        { "id": "ignore", "name": "Would ignore or silence the alarm", "terms": ["ignore it", "silence it and", "just silence", "turn off the alarm", "leave it for the next shift", "go home"] },
+        { "id": "guess", "name": "Would make unauthorized changes", "terms": ["adjust the settings myself", "change the setpoint myself", "try to fix it myself"] }
+      ],
+      "exampleAnswers": [
+        "I wouldn't ignore it or just silence it. I'd check the alarm response SOP, call my lead or the on-call person, and not make any changes I'm not authorized to make. I'd write down the time and what I did, and hand it off clearly to the next shift.",
+        "First I'd look up the alarm in the procedure to see what it means. Then I'd contact my supervisor or on-call right away and follow their instructions, and document everything.",
+        "Acknowledge the alarm, follow the SOP for that alarm, and escalate to the lead. I wouldn't adjust the bioreactor on my own. Then I'd log the time and actions for the next shift.",
+        "I'd take it seriously, check the alarm response procedure and call the on-call engineer. While waiting I'd note the time and readings, and make sure the next shift knows what happened.",
+        "Even if it's the end of my shift, I'd stay, follow the alarm SOP, phone my supervisor, not touch settings I'm not trained on, and record what happened."
+      ]
+    },
+    {
+      "id": "Q8.1", "module": 8, "title": "Candidate questions", "type": "General", "speaker": "jordan",
+      "say": "That's all I have. What questions do you have for us?",
+      "probe": "",
+      "coach": "Always have two or three thoughtful questions. Avoid asking about pay or time off in a first interview unless the interviewer brings it up.",
+      "listenFor": "2–3 thoughtful questions; never \"no questions.\" Good examples: \"What does training look like in the first 90 days?\" \"What shift would this role be on?\" \"What makes someone successful on your team?\" \"What are the next steps?\"",
+      "concepts": [
+        { "id": "training", "name": "Asked about training / onboarding", "weight": 1, "core": false, "terms": ["training", "first 90 days", "onboarding", "learn", "mentor"] },
+        { "id": "role", "name": "Asked about the role or shift", "weight": 1, "core": false, "terms": ["shift", "schedule", "typical day", "day to day", "responsibilities", "team"] },
+        { "id": "success", "name": "Asked what makes someone successful", "weight": 1, "core": false, "terms": ["successful", "success", "best people", "stand out", "expectations"] },
+        { "id": "next", "name": "Asked about next steps", "weight": 1, "core": false, "terms": ["next steps", "timeline", "hear back", "hiring process"] }
+      ],
+      "redFlags": [
+        { "id": "noquestions", "name": "Said \"no questions\" at the close", "terms": ["no questions", "i dont have any questions", "i dont have questions", "nope im good", "i think youve covered everything"] },
+        { "id": "pay", "name": "Led with pay or time off", "terms": ["how much does it pay", "how much vacation", "how much pto"] }
+      ],
+      "exampleAnswers": [
+        "Yes, thank you. What does training look like in the first 90 days? And what makes someone successful on your team?",
+        "I'd like to know what shift this role would be on, and what a typical day looks like for a new associate.",
+        "What are the next steps in the hiring process? And how is the team structured?",
+        "How do new associates get trained on the equipment, and what do your best people do differently?",
+        "Could you tell me more about the day to day responsibilities, and when I might hear back about next steps?"
+      ]
+    },
+    {
+      "id": "Q8.2", "module": 8, "title": "Closing statement", "type": "General", "speaker": "simone",
+      "say": "Is there anything else you'd like us to know about you?",
+      "probe": "",
+      "coach": "Give a 20 to 30 second summary of your fit, restate your interest, and thank the panel. Send a short thank-you email within 24 hours.",
+      "listenFor": "A 20–30 second summary of fit; restates interest; thanks the interviewer.",
+      "concepts": [
+        { "id": "fit", "name": "Summarized fit for the role", "weight": 1.25, "core": true, "terms": ["detail", "reliable", "dependable", "training", "experience", "procedures", "team", "fit", "skills", "hard working", "hardworking"] },
+        { "id": "interest", "name": "Restated interest", "weight": 1, "core": true, "terms": ["interested", "excited", "really want", "would love", "look forward", "opportunity"] },
+        { "id": "thanks", "name": "Thanked the panel", "weight": 0.75, "core": false, "terms": ["thank", "thanks", "appreciate"] }
+      ],
+      "redFlags": [],
+      "exampleAnswers": [
+        "Just that I'm very interested in this role. I'm reliable, I follow procedures carefully, and my training has prepared me for GMP work. Thank you for your time today.",
+        "I'd like you to know I'm hardworking and dependable, I learn quickly, and I'd love the opportunity to join your team. Thanks for meeting with me.",
+        "I think my attention to detail and teamwork from my past jobs, plus my biomanufacturing training, make me a good fit. I'm really excited about this opportunity, and I appreciate your time.",
+        "Only that I'm ready to work hard and grow here. I'm comfortable with shift work and following strict procedures. Thank you for considering me.",
+        "I'm genuinely excited about making medicine for patients, and I'll bring the same reliability I showed in my last job. Thank you all for the conversation."
+      ]
+    }
+  ],
+  "interviewSets": [
+    { "id": "full", "name": "Full mock interview", "description": "All eight modules, about 35–45 minutes.", "modules": [1, 2, 3, 4, 5, 6, 7, 8], "includeOpeningAndClosing": true },
+    { "id": "manufacturing", "name": "Manufacturing track (15 min)", "description": "Opening, cleanroom, processing and equipment, closing.", "modules": [1, 3, 4, 5, 8], "includeOpeningAndClosing": true },
+    { "id": "qcqa", "name": "QC/QA track (15 min)", "description": "Opening, GMP and documentation, safety and quality, closing.", "modules": [1, 2, 6, 8], "includeOpeningAndClosing": true },
+    { "id": "behavioral", "name": "Behavioral practice", "description": "Background and STAR questions.", "modules": [1, 7, 8], "includeOpeningAndClosing": true },
+    { "id": "lightning", "name": "Lightning round", "description": "10 random technical questions, 60 seconds each.", "modules": [2, 3, 4, 5, 6], "randomCount": 10, "timeLimitSeconds": 60, "includeOpeningAndClosing": false }
+  ]
+}

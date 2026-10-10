@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mock Interview · Myra EB Systems</title>
+  <meta name="description" content="Biomanufacturing panel interview practice from Myra EB Systems.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <img class="logo" src="assets/logo.png" alt="Myra EB Systems logo">
+    <div>
+      <h1>Mock Interview</h1>
+      <p>Biomanufacturing panel interview practice</p>
+    </div>
+    <div class="wordmark">MYRA EB SYSTEMS</div>
+  </header>
+
+  <main>
+    <div id="browser-notice" class="notice"></div>
+
+    <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div class="overlay" id="overlay">
+        <img class="mark" src="assets/logo.png" alt="">
+        <h2>Ready when you are</h2>
+        <p class="start-note">Four interviewers will ask you questions out loud. Answer by speaking, and you'll get feedback on each answer. Your browser will ask to use the microphone.</p>
+        <button class="btn" id="start">Start Mock Interview</button>
+        <div class="progress" aria-live="polite">
+          <div class="bar"><div class="fill" id="fill"></div></div>
+          <div class="label" id="label">Loading…</div>
+        </div>
+        <p class="error" id="error"></p>
+      </div>
+    </div>
+    </div>
+
+    <section class="info">
+      <div class="tip"><span class="chip">BROWSER</span><b>Chrome, Edge or Safari only</b><span class="txt">The interview listens to your spoken answers using the browser's speech recognition, which other browsers don't offer.</span></div>
+      <div class="tip"><span class="chip">AUDIO</span><b>Use headphones if you can</b><span class="txt">Allow the microphone when asked. Headphones stop the panel's voices from being picked up as your answer.</span></div>
+      <div class="tip"><span class="chip">PRIVACY</span><b>Practice only</b><span class="txt">The browser's speech service turns your voice into text. Scores stay in this browser and aren't part of any hiring decision.</span></div>
+      <div class="actions">
+        <button class="btn ghost" id="fullscreen" disabled>Full screen</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>MYRA EB SYSTEMS</span>
+    <span>Mock Interview 2026 · Web edition · The first visit takes a minute to load; later visits load from cache.</span>
+  </footer>
+
+  <script>
+    // Unity build files (written by InterviewBuild.BuildWebGL; names follow the build folder name).
+    const BUILD = "Build/WebGL";
+    const EXT = ".unityweb";
+    const config = {
+      dataUrl: null, // set after the parts are joined (see loadData)
+      frameworkUrl: BUILD + ".framework.js" + EXT,
+      codeUrl: BUILD + ".wasm" + EXT,
+      streamingAssetsUrl: "StreamingAssets",
+      // The joined data is a one-off blob: URL, so keep it out of Unity's IndexedDB cache.
+      cacheControl: (url) => (url.startsWith("blob:") ? "no-store" : "must-revalidate"),
+      companyName: "Myra EB Systems",
+      productName: "Mock Interview",
+      productVersion: "2026",
+      autoSyncPersistentDataPath: true, // saves practice results without the deprecated manual sync
+      // Unity shows every page error as a pop-up by default, including ones thrown by browser
+      // extensions (e.g. PDF tools). Only Unity's own warnings/errors are relevant; log the rest.
+      showBanner: (msg, type) => {
+        if (fromExtension(msg)) return;
+        if (type === "error") console.error("[Unity]", msg); else console.warn("[Unity]", msg);
+      },
+    };
+
+    const overlay = document.getElementById("overlay");
+    const fill = document.getElementById("fill");
+    const label = document.getElementById("label");
+    const errorBox = document.getElementById("error");
+    const startBtn = document.getElementById("start");
+    const fsBtn = document.getElementById("fullscreen");
+    const canvas = document.getElementById("unity-canvas");
+
+    // Browser checks, shown above the stage.
+    const notice = document.getElementById("browser-notice");
+    const hasSpeech = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+    if (mobile) {
+      notice.textContent = "This experience is designed for a laptop or desktop computer. It may not run well on a phone or tablet.";
+      notice.classList.add("show");
+    }
+    if (!hasSpeech) {
+      // Spoken answers only: don't let the interview start where the browser can't listen.
+      notice.textContent = "Please open this page in Google Chrome, Microsoft Edge or Safari. This browser can't listen to spoken answers.";
+      notice.classList.add("show");
+      startBtn.disabled = true;
+      startBtn.textContent = "Use Chrome, Edge or Safari";
+    }
+
+    let instance = null;
+    startBtn.addEventListener("click", async () => {
+      // Ask for the microphone first; the interview needs it.
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach((t) => t.stop());
+      } catch (e) {
+        overlay.classList.add("failed");
+        errorBox.textContent = "The interview needs your microphone. Allow microphone access for this page (the icon in the address bar), then press Start again.";
+        return;
+      }
+      overlay.classList.remove("failed");
+      overlay.classList.add("loading");
+      label.textContent = "Loading the interview room…";
+      try {
+        config.dataUrl = await loadData((f) => show(f * 0.85));
+      } catch (e) {
+        fail("The interview files could not be downloaded. Check your connection and reload the page.");
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = BUILD + ".loader.js";
+      script.onerror = () => fail("The interview files could not be downloaded. Check your connection and reload the page.");
+      script.onload = () => {
+        createUnityInstance(canvas, config, (p) => show(0.85 + p * 0.15)).then((u) => {
+          instance = u;
+          started();
+        }).catch((e) => {
+          // A browser extension's error during startup makes Unity's promise reject even though the
+          // game keeps running. Don't leave the overlay over a working interview.
+          const text = String((e && e.stack) || e);
+          if (fromExtension(text)) { console.warn("[Mock Interview] ignored extension error:", text); started(); }
+          else fail("The interview couldn't start in this browser. " + e);
+        });
+      };
+      document.body.appendChild(script);
+    });
+
+    fsBtn.addEventListener("click", () => {
+      if (instance) instance.SetFullscreen(1);
+      else if (canvas.requestFullscreen) canvas.requestFullscreen();
+    });
+
+    function fromExtension(text) { return /chrome-extension:|moz-extension:|safari-web-extension:/.test(text); }
+
+    function started() {
+      overlay.classList.add("hidden");
+      fsBtn.disabled = false;
+      canvas.focus();
+    }
+
+    function show(f) {
+      const pct = Math.min(100, Math.round(f * 100));
+      fill.style.width = pct + "%";
+      label.textContent = pct < 85 ? `Loading the interview room… ${pct}%` : "Getting the panel ready…";
+    }
+
+    // GitHub Pages allows files up to 100 MB, so the game data is stored in parts
+    // (Build/data-parts.json, made by publish.sh). Download them in order and join them.
+    async function loadData(progress) {
+      const manifest = await (await fetch("Build/data-parts.json", { cache: "no-cache" })).json();
+      const chunks = [];
+      let received = 0;
+      for (const part of manifest.parts) {
+        const res = await fetch("Build/" + part);
+        if (!res.ok) throw new Error(part + ": " + res.status);
+        const reader = res.body.getReader();
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(value);
+          received += value.length;
+          progress(received / manifest.size);
+        }
+      }
+      if (received !== manifest.size) throw new Error("incomplete download");
+      return URL.createObjectURL(new Blob(chunks));
+    }
+
+    function fail(msg) {
+      overlay.classList.remove("loading");
+      overlay.classList.add("failed");
+      errorBox.textContent = msg;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Mock Interview web page — Myra EB Systems theme (same palette as the Training Kiosk). */
+:root {
+  --navy: #0b1240;
+  --navy-deep: #070b2b;
+  --card: #151d55;
+  --card-hover: #1c2670;
+  --line: #26307a;
+  --teal: #2bb8c6;
+  --violet: #6a4fc9;
+  --gold: #e0a33a;
+  --text: #ffffff;
+  --dim: #b8c0e8;
+  --bad: #ef6c6c;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--navy-deep);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background:
+    radial-gradient(1100px 600px at 85% -10%, rgba(106, 79, 201, 0.28), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(43, 184, 198, 0.16), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  /* Everything fits one screen: header, game window, tips and footer; the window takes what's left. */
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ---------- header ---------- */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(10px, 2vh, 20px) clamp(16px, 4vw, 48px);
+  flex: none;
+}
+.top .logo { width: clamp(40px, 6vh, 56px); height: clamp(40px, 6vh, 56px); border-radius: 14px; flex: none; }
+.top h1 { margin: 0; font-size: clamp(20px, 3.4vh, 32px); font-weight: 700; letter-spacing: -0.01em; }
+.top p { margin: 2px 0 0; color: var(--dim); font-size: clamp(13px, 1.9vh, 17px); }
+.wordmark {
+  margin-left: auto;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+}
+
+/* ---------- main stage ---------- */
+main {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px) clamp(8px, 1.5vh, 16px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Takes the leftover height; the stage inside is the largest 16:9 box that fits. */
+.stage-wrap {
+  flex: 1;
+  min-height: 0;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  width: min(100cqw, 100cqh * 16 / 9);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(43, 184, 198, 0.06);
+}
+.stage::before { /* thin brand gradient line along the top edge */
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 3px; z-index: 3;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+}
+#unity-canvas { display: block; width: 100%; height: 100%; background: #0b1240; outline: none; }
+
+/* Start / loading overlay */
+.overlay {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 32px; text-align: center;
+  background: linear-gradient(180deg, rgba(11, 18, 64, 0.96), rgba(7, 11, 43, 0.98));
+  transition: opacity 0.5s ease;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay .mark { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 10px 40px rgba(43, 184, 198, 0.25); }
+.overlay h2 { margin: 6px 0 0; font-size: clamp(22px, 2.6vw, 32px); }
+.overlay p { margin: 0; max-width: 620px; color: var(--dim); line-height: 1.5; }
+
+.btn {
+  appearance: none; border: 0; cursor: pointer;
+  font: inherit; font-weight: 600; font-size: 18px;
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+  box-shadow: 0 8px 26px rgba(43, 184, 198, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn:not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(43, 184, 198, 0.4); }
+.btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+.btn.ghost { background: transparent; border: 1px solid var(--line); box-shadow: none; font-size: 15px; padding: 10px 20px; }
+.btn.ghost:hover { background: var(--card-hover); }
+
+.progress { width: min(460px, 80%); display: none; }
+.progress .bar { height: 8px; border-radius: 99px; background: var(--navy-deep); border: 1px solid var(--line); overflow: hidden; }
+.progress .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--teal), var(--violet)); transition: width 0.2s ease; }
+.progress .label { margin-top: 10px; font-size: 14px; color: var(--dim); }
+.loading .progress { display: block; }
+.loading .btn, .loading .start-note { display: none; }
+
+.error { color: var(--bad); display: none; max-width: 620px; }
+.failed .error { display: block; }
+.failed .progress { display: none; }
+
+/* ---------- info row under the stage ---------- */
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 12px;
+  margin-top: clamp(8px, 1.5vh, 16px);
+  align-items: stretch;
+  flex: none;
+}
+.tip {
+  background: rgba(21, 29, 85, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.45;
+}
+.tip b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+.tip .chip { display: inline-block; margin-bottom: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--teal); }
+.actions { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+
+.notice {
+  display: none;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(224, 163, 58, 0.5);
+  background: rgba(224, 163, 58, 0.12);
+  color: #ffd99a;
+  font-size: 14px;
+}
+.notice.show { display: block; }
+.notice { margin-bottom: 10px; flex: none; }
+
+footer {
+  flex: none;
+  padding: clamp(8px, 1.4vh, 14px) clamp(16px, 4vw, 48px);
+  color: var(--dim);
+  font-size: 12px;
+  display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between;
+  border-top: 1px solid rgba(38, 48, 122, 0.6);
+}
+footer span:first-child { color: var(--teal); letter-spacing: 0.18em; font-weight: 600; }
+
+/* ---------- short screens: drop detail before the game window shrinks too far ---------- */
+@media (max-height: 820px) { .tip .txt { display: none; } }
+@media (max-height: 640px) { footer, .top p { display: none; } }
+
+/* ---------- small screens ---------- */
+@media (max-width: 900px) {
+  .info { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tip .txt { display: none; }
+  .actions { grid-column: 1 / -1; flex-direction: row; }
+}
+@media (max-width: 600px) {
+  /* Phones: let the page scroll instead of squeezing the window. */
+  body { height: auto; min-height: 100dvh; overflow: auto; }
+  main { display: block; }
+  .stage-wrap { container-type: normal; display: block; }
+  .stage { width: 100%; }
+  .wordmark { display: none; }
+  .top .logo { width: 44px; height: 44px; }
+  .info { grid-template-columns: 1fr; }
+}
