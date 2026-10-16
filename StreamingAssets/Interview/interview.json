@@ -9250,30 +9250,8 @@
  ],
  "interviewSets": [
   {
-   "id": "moderna",
-   "name": "Moderna: Manufacturing Associate I",
-   "description": "Practice for the Moderna role: about 13 questions, 25–30 minutes.",
-   "modules": [],
-   "questions": [
-    "Q1.1",
-    "M9.1",
-    "M9.9",
-    "M9.11",
-    "M9.2",
-    "M9.4",
-    "Q2.2",
-    "Q3.1",
-    "M9.14",
-    "M9.7",
-    "Q7.1",
-    "M9.8",
-    "M9.20"
-   ],
-   "includeOpeningAndClosing": true
-  },
-  {
    "id": "moderna_full",
-   "name": "Moderna: full practice interview",
+   "name": "Moderna full interview practice",
    "description": "Every Moderna-style question plus GMP, gowning and safety, about 50 minutes.",
    "modules": [],
    "questions": [
@@ -9360,7 +9338,7 @@
   {
    "id": "lightning",
    "name": "Lightning round",
-   "description": "10 random technical questions, 60 seconds each.",
+   "description": "10 random technical questions, including Moderna ones, 60 seconds each.",
    "modules": [
     2,
     3,
@@ -9368,6 +9346,7 @@
     5,
     6
    ],
+   "questions": ["M9.2","M9.3","M9.4","M9.5","M9.7","M9.12","M9.13","M9.14","M9.16","M9.17"],
    "randomCount": 10,
    "timeLimitSeconds": 60,
    "includeOpeningAndClosing": false
