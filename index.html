@@ -38,6 +38,7 @@
         </div>
         <p class="error" id="error"></p>
       </div>
+      <div class="rotate" id="rotate"><img src="assets/logo.png" alt=""><b>Turn your phone sideways</b><span>The interview runs in landscape.</span></div>
     </div>
     </div>
 
@@ -60,6 +61,7 @@
     // Unity build files (written by InterviewBuild.BuildWebGL; names follow the build folder name).
     const BUILD = "Build/WebGL";
     const EXT = ".unityweb";
+    let VERSION = ""; // "?v=<publish time>", from Build/data-parts.json
     const config = {
       dataUrl: null, // set after the parts are joined (see loadData)
       frameworkUrl: BUILD + ".framework.js" + EXT,
@@ -92,8 +94,11 @@
     const hasSpeech = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
     const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
     if (mobile) {
-      notice.textContent = "This experience is designed for a laptop or desktop computer. It may not run well on a phone or tablet.";
-      notice.classList.add("show");
+      // Phones: full-screen start panel (the 16:9 strip is too short for it), landscape full screen
+      // once started, and a lower render resolution (phones report 3x+ pixel density).
+      document.body.classList.add("mobile");
+      config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      document.querySelector(".start-note").textContent = "Four interviewers will ask you questions out loud. Answer by speaking. Use headphones if you can, keep the phone sideways, and allow the microphone when asked.";
     }
     if (!hasSpeech) {
       // Spoken answers only: don't let the interview start where the browser can't listen.
@@ -105,6 +110,8 @@
 
     let instance = null;
     startBtn.addEventListener("click", async () => {
+      // Phones: full screen must be requested straight from the tap, before any await.
+      if (mobile) enterPhoneMode();
       // Ask for the microphone first; the interview needs it.
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -124,7 +131,7 @@
         return;
       }
       const script = document.createElement("script");
-      script.src = BUILD + ".loader.js";
+      script.src = BUILD + ".loader.js" + VERSION;
       script.onerror = () => fail("The interview files could not be downloaded. Check your connection and reload the page.");
       script.onload = () => {
         createUnityInstance(canvas, config, (p) => show(0.85 + p * 0.15)).then((u) => {
@@ -142,9 +149,21 @@
     });
 
     fsBtn.addEventListener("click", () => {
+      if (mobile) { enterPhoneMode(); return; }
       if (instance) instance.SetFullscreen(1);
       else if (canvas.requestFullscreen) canvas.requestFullscreen();
     });
+
+    // Full screen + landscape on phones (Android Chrome allows the orientation lock in full screen).
+    async function enterPhoneMode() {
+      document.body.classList.add("playing");
+      try {
+        const el = document.documentElement;
+        if (el.requestFullscreen) await el.requestFullscreen({ navigationUI: "hide" });
+        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      } catch (e) { /* not allowed: still works in the browser window */ }
+      try { if (screen.orientation && screen.orientation.lock) await screen.orientation.lock("landscape"); } catch (e) { /* iOS/desktop: rotate prompt instead */ }
+    }
 
     function fromExtension(text) { return /chrome-extension:|moz-extension:|safari-web-extension:/.test(text); }
 
@@ -164,10 +183,14 @@
     // (Build/data-parts.json, made by publish.sh). Download them in order and join them.
     async function loadData(progress) {
       const manifest = await (await fetch("Build/data-parts.json", { cache: "no-cache" })).json();
+      // Each publish stamps a version, so a browser never mixes cached files from an older build.
+      VERSION = manifest.v ? "?v=" + manifest.v : "";
+      config.frameworkUrl = BUILD + ".framework.js" + EXT + VERSION;
+      config.codeUrl = BUILD + ".wasm" + EXT + VERSION;
       const chunks = [];
       let received = 0;
       for (const part of manifest.parts) {
-        const res = await fetch("Build/" + part);
+        const res = await fetch("Build/" + part + VERSION);
         if (!res.ok) throw new Error(part + ": " + res.status);
         const reader = res.body.getReader();
         for (;;) {

@@ -203,3 +203,31 @@ footer span:first-child { color: var(--teal); letter-spacing: 0.18em; font-weigh
   .top .logo { width: 44px; height: 44px; }
   .info { grid-template-columns: 1fr; }
 }
+
+/* ---------- phones (body.mobile, set by index.html) ---------- */
+.rotate { display: none; }
+body.mobile .overlay {
+  position: fixed; inset: 0; z-index: 50; overflow-y: auto;
+  justify-content: center; gap: 12px; padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+}
+body.mobile .overlay.hidden { display: none; }
+body.mobile .overlay .mark { width: 64px; height: 64px; border-radius: 16px; }
+body.mobile .overlay p { font-size: 15px; }
+body.mobile .btn#start { font-size: 18px; padding: 16px 28px; width: min(100%, 360px); }
+/* Playing: the game takes the whole screen. */
+body.mobile.playing { overflow: hidden; height: 100dvh; }
+body.mobile.playing .top, body.mobile.playing .info, body.mobile.playing footer, body.mobile.playing .notice { display: none; }
+body.mobile.playing main { padding: 0; max-width: none; height: 100dvh; display: block; }
+body.mobile.playing .stage-wrap { display: block; height: 100dvh; }
+body.mobile.playing .stage {
+  position: fixed; inset: 0; width: 100vw; height: 100dvh; aspect-ratio: auto;
+  border: 0; border-radius: 0; box-shadow: none;
+}
+@media (orientation: portrait) {
+  body.mobile.playing .rotate {
+    display: flex; position: fixed; inset: 0; z-index: 60; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; padding: 24px; text-align: center; background: rgba(7, 11, 43, 0.97); color: #fff;
+  }
+  body.mobile.playing .rotate img { width: 64px; height: 64px; border-radius: 16px; }
+  body.mobile.playing .rotate span { color: var(--dim); }
+}
